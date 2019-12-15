@@ -49,6 +49,8 @@ dependencies {
     implementation libs.cacheable
 
     implementation libs.log
+    implementation "se.michaelthelin.spotify:spotify-web-api-java:4.2.0"
+
 
     testImplementation libs.spring_test
     testImplementation libs.unit_test

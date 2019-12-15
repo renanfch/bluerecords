@@ -5,6 +5,6 @@ dependencies {
 
     implementation libs.log
     implementation libs.database
-
+    implementation "se.michaelthelin.spotify:spotify-web-api-java:4.2.0"
     testImplementation libs.unit_test
 }
