@@ -1,0 +1,47 @@
+server:
+  port: 9999
+
+application:
+  version: ${project.version}
+  name: ${project.name}
+  description: ${project.description}
+  artifact-id: ${project.artifactId}
+
+bluerecordsdb:
+  database:
+    url: jdbc:h2:nio:./db/bluerecords_db;MODE=MySQL
+    user: root
+    password: 123456
+    driver: org.h2.Driver
+
+spring:
+  h2:
+    console:
+      enabled: true
+  profiles:
+    active: default
+  cache:
+    type: caffeine
+    caffeine:
+      spec: maximumSize=1000,expireAfterAccess=3600s
+  flyway:
+    url: \${bluerecordsdb.database.url}
+    user: \${bluerecordsdb.database.user}
+    password: \${bluerecordsdb.database.password}
+    baseline-on-migrate: true
+    validate-on-migrate: false
+    enabled: true
+
+log:
+  enable: false
+  sout: true
+  basename: \${application.artifact-id}
+  version: \${application.version}
+
+  file:
+    enable: false
+    path: ./log/\${application.artifact-id}
+    mode: VERBOSE
+
+  rabbit-mq:
+    enable: false

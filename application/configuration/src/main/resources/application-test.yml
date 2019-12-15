@@ -1,0 +1,11 @@
+erver:
+  port: 0
+
+log:
+  sout: true
+
+  file:
+    enable: false
+
+  rabbit-mq:
+    enable: false

@@ -1,0 +1,9 @@
+description = "Camada de entrada de dados na aplicação(REST, AMQP, etc)"
+
+dependencies {
+    implementation project(":application:core")
+
+    implementation libs.rest
+    implementation libs.log
+    testImplementation libs.unit_test
+}
