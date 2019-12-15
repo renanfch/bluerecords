@@ -8,11 +8,11 @@
 *.zip
 *.tar.gz
 *.rar
+*.db
 
 .idea/
 out/
 build/
 .gradle/
-db/
 !gradle-wrapper.jar
 
