@@ -75,6 +75,7 @@ subprojects {
                 rest         : [
                         "org.springframework.boot:spring-boot-starter-web:${versions.spring}",
                         "io.springfox:springfox-swagger-ui:${versions.swagger}",
+                        "io.springfox:springfox-swagger2:${versions.swagger}",
                 ],
                 database     : [
                         "org.springframework.boot:spring-boot-starter-jdbc:${versions.spring}",

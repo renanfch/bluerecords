@@ -11,10 +11,10 @@ import java.sql.Statement
 class DiscoRepositorioImpl(private val jdbcTemplate: JdbcTemplate) : DiscoRepositorio
 {
 
-    private val INSERT_DISCO = " INSERT INTO disco_tbl  ( id_genero, nome )" +
-            " VALUES ( ?,? ); "
+    private val INSERT_DISCO = " INSERT INTO disco_tbl  ( id_genero, nome, valor )" +
+            " VALUES ( ?,?,? ); "
 
-    private val SELECT_DISCO = " SELECT id_disco, id_genero, nome FROM disco_tbl; "
+    private val SELECT_DISCO = " SELECT id_disco, id_genero, nome, valor FROM disco_tbl; "
 
     override fun cadastrar(command: CadastrarDiscoCommand): Disco {
 
@@ -23,10 +23,11 @@ class DiscoRepositorioImpl(private val jdbcTemplate: JdbcTemplate) : DiscoReposi
             val ps = conexao.prepareStatement(INSERT_DISCO, Statement.RETURN_GENERATED_KEYS )
             ps.setInt(1, command.idGenero)
             ps.setString(2, command.nome)
+            ps.setDouble(3, command.valor)
             ps
         }, keyHolderDisco)
 
-        return Disco(keyHolderDisco.key?.toInt() ?: 0, command.idGenero, command.nome)
+        return Disco(keyHolderDisco.key?.toInt() ?: 0, command.idGenero, command.nome, command.valor)
     }
 
     override fun existeDiscoCadastrado(): Boolean {

@@ -8,6 +8,7 @@ class DiscoRowMapper : RowMapper<Disco> {
     override fun mapRow(rs: ResultSet, rowNum: Int): Disco? {
         return Disco( id = rs.getInt("id_disco"),
             idGenero = rs.getInt("id_genero"),
-            nome = rs.getString("nome"))
+            nome = rs.getString("nome"),
+            valor = rs.getDouble("valor"))
     }
 }

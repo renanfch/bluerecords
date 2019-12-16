@@ -3,6 +3,7 @@ CREATE TABLE disco_tbl
     id_disco  INT NOT NULL AUTO_INCREMENT,
     id_genero varchar(255),
     nome      varchar(255),
+    valor     decimal(12, 2),
     PRIMARY KEY (id_disco)
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8;
