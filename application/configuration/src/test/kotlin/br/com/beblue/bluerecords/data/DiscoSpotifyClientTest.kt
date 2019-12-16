@@ -1,5 +1,7 @@
 package br.com.beblue.bluerecords.data
 
+import br.com.beblue.bluerecords.core.entity.Genero
+import br.com.beblue.bluerecords.core.repositorio.DiscoSpotifyClient
 import org.junit.jupiter.api.Test
 import org.junit.runner.RunWith
 
@@ -9,14 +11,15 @@ import org.springframework.test.context.junit4.SpringRunner
 
 @RunWith(SpringRunner::class)
 @SpringBootTest
-internal class SpotifyxTest {
+internal class DiscoSpotifyClientTest {
 
     @Autowired
-    private lateinit var spotifyx: Spotifyx
+    private lateinit var discoSpotifyClient: DiscoSpotifyClient
 
     @Test
     fun buscarMusicasPorGenero()
     {
-        val teste = spotifyx.buscarMusicasPorGenero("mpb")
+        val teste = discoSpotifyClient.buscarDiscos(Genero(1, "rock"))
     }
+
 }

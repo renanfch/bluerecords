@@ -1,6 +1,6 @@
-package br.com.beblue.bluerecords.configuration.venda.usecase
+package br.com.beblue.bluerecords.configuration.sistema.usecase
 
-import br.com.beblue.bluerecords.core.repository.VendaRepositorio
+import br.com.beblue.bluerecords.core.repositorio.VendaRepositorio
 import br.com.beblue.bluerecords.core.usecase.venda.VendaUseCase
 import br.com.beblue.bluerecords.core.usecase.venda.VendaUseCaseImpl
 import org.springframework.context.annotation.Bean

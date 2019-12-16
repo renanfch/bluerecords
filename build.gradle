@@ -29,6 +29,7 @@ buildscript {
 allprojects {
     repositories {
         mavenCentral()
+        jcenter()
     }
 }
 
@@ -44,6 +45,7 @@ subprojects {
                 jackson_kotlin: '2.9.7',
                 swagger       : '2.9.2',
                 mockk         : '1.9',
+                khttp         : '1.0.0',
         ]
 
         libs = [
@@ -78,6 +80,10 @@ subprojects {
                         "org.springframework.boot:spring-boot-starter-jdbc:${versions.spring}",
                         "com.h2database:h2:${versions.h2}",
                         "org.flywaydb:flyway-core:${versions.flyway}",
+                ]
+                ,
+                khttp     : [
+                        "khttp:khttp:${versions.khttp}"
                 ]
         ]
     }

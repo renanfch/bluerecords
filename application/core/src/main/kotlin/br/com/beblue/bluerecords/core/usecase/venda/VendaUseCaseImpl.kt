@@ -1,7 +1,7 @@
 package br.com.beblue.bluerecords.core.usecase.venda
 
 import br.com.beblue.bluerecords.core.entity.Venda
-import br.com.beblue.bluerecords.core.repository.VendaRepositorio
+import br.com.beblue.bluerecords.core.repositorio.VendaRepositorio
 import br.com.beblue.bluerecords.core.usecase.venda.command.ConsultaVendasCommand
 import br.com.beblue.bluerecords.core.usecase.venda.command.RegistrarVendaCommand
 

@@ -15,6 +15,11 @@ CREATE TABLE genero_tbl
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8;
 
+INSERT INTO genero_tbl(descricao) values('ROCK');
+INSERT INTO genero_tbl(descricao) values('MPB');
+INSERT INTO genero_tbl(descricao) values('CLASSIC');
+INSERT INTO genero_tbl(descricao) values('POP');
+
 CREATE TABLE cliente_tbl
 (
     id_cliente     INT NOT NULL AUTO_INCREMENT,
@@ -43,3 +48,5 @@ CREATE TABLE venda_itens_tbl
     PRIMARY KEY (id_venda_itens)
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8;
+
+

@@ -1,4 +1,4 @@
-package br.com.beblue.bluerecords.configuration.venda.endpoint
+package br.com.beblue.bluerecords.configuration.sistema.endpoint
 
 import br.com.beblue.bluerecords.core.usecase.venda.VendaUseCase
 import br.com.beblue.bluerecords.entrypoint.venda.controller.impl.VendaRestController

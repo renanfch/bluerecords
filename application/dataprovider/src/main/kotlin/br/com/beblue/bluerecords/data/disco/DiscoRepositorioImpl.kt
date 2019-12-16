@@ -1,13 +1,39 @@
 package br.com.beblue.bluerecords.data.disco
 
 import br.com.beblue.bluerecords.core.entity.Disco
-import br.com.beblue.bluerecords.core.repository.DiscoRepositorio
+import br.com.beblue.bluerecords.core.repositorio.DiscoRepositorio
 import br.com.beblue.bluerecords.core.usecase.disco.command.CadastrarDiscoCommand
+import br.com.beblue.bluerecords.data.disco.mapper.DiscoRowMapper
 import org.springframework.jdbc.core.JdbcTemplate
+import org.springframework.jdbc.support.GeneratedKeyHolder
+import java.sql.Statement
 
 class DiscoRepositorioImpl(private val jdbcTemplate: JdbcTemplate) : DiscoRepositorio
 {
+
+    private val INSERT_DISCO = " INSERT INTO disco_tbl  ( id_genero, nome )" +
+            " VALUES ( ?,? ); "
+
+    private val SELECT_DISCO = " SELECT id_disco, id_genero, nome FROM disco_tbl; "
+
     override fun cadastrar(command: CadastrarDiscoCommand): Disco {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
+        val keyHolderDisco = GeneratedKeyHolder()
+        jdbcTemplate.update({ conexao ->
+            val ps = conexao.prepareStatement(INSERT_DISCO, Statement.RETURN_GENERATED_KEYS )
+            ps.setInt(1, command.idGenero)
+            ps.setString(2, command.nome)
+            ps
+        }, keyHolderDisco)
+
+        return Disco(keyHolderDisco.key?.toInt() ?: 0, command.idGenero, command.nome)
+    }
+
+    override fun existeDiscoCadastrado(): Boolean {
+        val discoExists = jdbcTemplate.query(
+            SELECT_DISCO,
+            DiscoRowMapper()
+        )
+        return discoExists.size > 0
     }
 }

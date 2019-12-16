@@ -1,7 +1,7 @@
 package br.com.beblue.bluerecords.data.venda
 
 import br.com.beblue.bluerecords.core.entity.Disco
-import br.com.beblue.bluerecords.core.repository.VendaRepositorio
+import br.com.beblue.bluerecords.core.repositorio.VendaRepositorio
 import br.com.beblue.bluerecords.core.usecase.disco.command.CadastrarDiscoCommand
 import org.springframework.jdbc.core.JdbcTemplate
 
