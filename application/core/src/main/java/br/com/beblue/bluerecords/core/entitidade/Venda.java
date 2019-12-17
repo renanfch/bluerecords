@@ -1,6 +1,9 @@
 package br.com.beblue.bluerecords.core.entitidade;
 
-public class Venda {
+import br.com.beblue.bluerecords.core.paginacao.Paginavel;
+
+public class Venda implements Paginavel
+{
     public Venda(Integer id) {
         this.id = id;
     }

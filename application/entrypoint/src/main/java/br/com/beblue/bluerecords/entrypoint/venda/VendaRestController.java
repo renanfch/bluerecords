@@ -1,13 +1,13 @@
 package br.com.beblue.bluerecords.entrypoint.venda;
 
 import br.com.beblue.bluerecords.core.usecase.VendaUseCase;
+import br.com.beblue.bluerecords.entrypoint.paginacao.PaginacaoDTO;
 import br.com.beblue.bluerecords.entrypoint.venda.dto.ConsultarVendaDTO;
 import br.com.beblue.bluerecords.entrypoint.venda.dto.RegistrarVendaRequestDTO;
 import br.com.beblue.bluerecords.entrypoint.venda.dto.RegistrarVendaResponseDTO;
 import br.com.beblue.bluerecords.entrypoint.venda.dto.VendaResponseDTO;
 import br.com.beblue.bluerecords.entrypoint.venda.mapper.RegistrarVendaMapper;
 import io.swagger.annotations.Api;
-import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -39,7 +39,7 @@ public class VendaRestController {
     }
 
     @GetMapping("/vendas")
-    public Page<VendaResponseDTO> consultarVendas(ConsultarVendaDTO consultarVendaDTO)
+    public PaginacaoDTO<VendaResponseDTO> consultarVendas(ConsultarVendaDTO consultarVendaDTO)
     {
         return null;
     }

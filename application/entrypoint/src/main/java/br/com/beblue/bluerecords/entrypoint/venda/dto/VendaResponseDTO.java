@@ -1,4 +1,7 @@
 package br.com.beblue.bluerecords.entrypoint.venda.dto;
 
-public class VendaResponseDTO {
+import br.com.beblue.bluerecords.entrypoint.paginacao.PaginavelDTO;
+
+public class VendaResponseDTO implements PaginavelDTO
+{
 }

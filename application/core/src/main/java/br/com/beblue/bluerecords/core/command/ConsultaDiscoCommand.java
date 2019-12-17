@@ -1,13 +1,25 @@
 package br.com.beblue.bluerecords.core.command;
 
-public class ConsultaDiscoCommand {
-    public ConsultaDiscoCommand(String genero) {
+public class ConsultaDiscoCommand  {
+
+    public ConsultaDiscoCommand(PaginacaoCommand paginacaoCommand, Integer genero)
+    {
+        this.paginacaoCommand = paginacaoCommand;
         this.genero = genero;
     }
-    public String getGenero() {
+
+    public PaginacaoCommand getPaginacaoCommand() {
+        return paginacaoCommand;
+    }
+
+    private PaginacaoCommand paginacaoCommand;
+
+
+    public Integer getGenero() {
         return genero;
     }
-    private String genero;
+
+    private Integer genero;
 
 }
 

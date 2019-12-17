@@ -1,6 +1,12 @@
 package br.com.beblue.bluerecords.core.entitidade;
 
-public class Disco {
+import br.com.beblue.bluerecords.core.paginacao.Paginavel;
+
+public class Disco implements Paginavel {
+    private Integer id;
+    private Integer idGenero;
+    private String nome;
+    private Double valor;
 
     public Disco(Integer id, Integer idGenero, String nome, Double valor) {
         this.id = id;
@@ -8,11 +14,6 @@ public class Disco {
         this.nome = nome;
         this.valor = valor;
     }
-
-    private Integer id;
-    private Integer idGenero;
-    private String nome;
-    private Double valor;
 
     public Integer getId() {
         return id;

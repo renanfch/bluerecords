@@ -1,13 +1,13 @@
-package br.com.beblue.bluerecords.entrypoint.disco.mapper;
+package br.com.beblue.bluerecords.entrypoint.disco.dto;
 
 public class DiscoRequestDTO
 {
-    private String genero;
+    private Integer generoId;
     private Integer pagina;
     private Integer tamanho;
 
-    public String getGenero() {
-        return genero;
+    public Integer getGeneroId() {
+        return generoId;
     }
 
     public Integer getPagina() {
@@ -18,8 +18,8 @@ public class DiscoRequestDTO
         return tamanho;
     }
 
-    public DiscoRequestDTO(String genero, Integer pagina, Integer tamanho) {
-        this.genero = genero;
+    public DiscoRequestDTO(Integer generoId, Integer pagina, Integer tamanho) {
+        this.generoId = generoId;
         this.pagina = pagina;
         this.tamanho = tamanho;
     }
