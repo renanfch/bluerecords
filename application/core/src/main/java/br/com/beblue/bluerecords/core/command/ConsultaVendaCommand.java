@@ -11,17 +11,8 @@ public class ConsultaVendaCommand {
     public Date getDataInicial() {
         return dataInicial;
     }
-
-    public void setDataInicial(Date dataInicial) {
-        this.dataInicial = dataInicial;
-    }
-
     public Date getDataFinal() {
         return dataFinal;
-    }
-
-    public void setDataFinal(Date dataFinal) {
-        this.dataFinal = dataFinal;
     }
 
     private Date dataInicial;

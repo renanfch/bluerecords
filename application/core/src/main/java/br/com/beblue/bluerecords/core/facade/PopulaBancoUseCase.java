@@ -18,12 +18,13 @@ public class PopulaBancoUseCase {
     private GeneroUseCase generoUseCase;
 
     public void populaBancoDeDados() {
-        if (!discoUseCase.discosForamCadastrados()) {
-            List<Genero> generos = generoUseCase.buscarGenero();
-            generos.forEach(genero -> {
-                List<CadastraDiscoCommand> commands = discoUseCase.consultarDiscosParaCadastroPorGenero(genero);
-                commands.forEach(it -> discoUseCase.cadastrarDisco(it));
-            });
+        if (discoUseCase.discosForamCadastrados()) {
+            return;
         }
+        List<Genero> generos = generoUseCase.buscarGenero();
+        generos.forEach(genero -> {
+            List<CadastraDiscoCommand> commands = discoUseCase.consultarDiscosParaCadastroPorGenero(genero);
+            commands.forEach(it -> discoUseCase.cadastrarDisco(it));
+        });
     }
 }

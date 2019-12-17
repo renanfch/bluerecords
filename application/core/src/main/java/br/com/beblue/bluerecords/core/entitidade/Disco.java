@@ -18,34 +18,16 @@ public class Disco {
         return id;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
     public Integer getIdGenero() {
         return idGenero;
-    }
-
-    public void setIdGenero(Integer idGenero) {
-        this.idGenero = idGenero;
     }
 
     public String getNome() {
         return nome;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
     public Double getValor() {
         return valor;
     }
-
-    public void setValor(Double valor) {
-        this.valor = valor;
-    }
-
-
 
 }

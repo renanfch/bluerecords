@@ -4,7 +4,7 @@ API para compra e vendas de discos de vinil;
 
 Stack utilizada:
 
-* Linguagem: [`Java`] / [`Kotlin`](https://kotlinlang.org) 
+* Linguagem: [`Java`](https://www.oracle.com/technetwork/java/javase/downloads/index.html) / [`Kotlin`](https://kotlinlang.org) 
 * Compilação: [`Gradle`](https://gradle.org)
 * Framework: [`Spring Boot`](https://spring.io/projects/spring-boot)
 * Cache: [`Caffeine`](https://github.com/ben-manes/caffeine)

@@ -1,18 +1,18 @@
 package br.com.beblue.bluerecords.entrypoint.venda;
 
 import br.com.beblue.bluerecords.core.usecase.VendaUseCase;
+import br.com.beblue.bluerecords.entrypoint.venda.dto.ConsultarVendaDTO;
 import br.com.beblue.bluerecords.entrypoint.venda.dto.RegistrarVendaRequestDTO;
 import br.com.beblue.bluerecords.entrypoint.venda.dto.RegistrarVendaResponseDTO;
 import br.com.beblue.bluerecords.entrypoint.venda.dto.VendaResponseDTO;
 import br.com.beblue.bluerecords.entrypoint.venda.mapper.RegistrarVendaMapper;
 import io.swagger.annotations.Api;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.data.domain.Page;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @Api(
-        description = "REST API para pesquisar e realizar vendas",
+        value = "REST API para pesquisar e realizar vendas",
         tags = {"ConsultaVendas"}
 )
 public class VendaRestController {
@@ -22,7 +22,7 @@ public class VendaRestController {
 
     private VendaUseCase vendaUseCase;
 
-    @PostMapping
+    @PostMapping("/venda")
     public RegistrarVendaResponseDTO registrarVenda(RegistrarVendaRequestDTO request) {
         RegistrarVendaResponseDTO response = verifyAndExecute(request);
         return response;
@@ -32,10 +32,17 @@ public class VendaRestController {
         RegistrarVendaMapper registrarVendaMapper = new RegistrarVendaMapper();
         return registrarVendaMapper.toResponseDTO(vendaUseCase.registrarVenda(registrarVendaMapper.toCommand(request)));
     }
-
-    @GetMapping
-    public VendaResponseDTO buscarVenda() {
+    @GetMapping("venda/{id}")
+    public VendaResponseDTO consultarVenda(@PathVariable String id)
+    {
         return null;
     }
+
+    @GetMapping("/vendas")
+    public Page<VendaResponseDTO> consultarVendas(ConsultarVendaDTO consultarVendaDTO)
+    {
+        return null;
+    }
+
 
 }

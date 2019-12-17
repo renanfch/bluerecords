@@ -1,7 +1,7 @@
 package br.com.beblue.bluerecords.configuration.sistema.endpoint
 
 import br.com.beblue.bluerecords.core.usecase.VendaUseCase
-import br.com.beblue.bluerecords.entrypoint.venda.controller.impl.VendaRestController
+import br.com.beblue.bluerecords.entrypoint.venda.VendaRestController
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 
