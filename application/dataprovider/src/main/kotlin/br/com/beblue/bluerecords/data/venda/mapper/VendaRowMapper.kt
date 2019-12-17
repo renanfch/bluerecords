@@ -1,6 +1,6 @@
 package br.com.beblue.bluerecords.data.venda.mapper
 
-import br.com.beblue.bluerecords.core.entity.Venda
+import br.com.beblue.bluerecords.core.entitidade.Venda
 import org.springframework.jdbc.core.RowMapper
 import java.sql.ResultSet
 

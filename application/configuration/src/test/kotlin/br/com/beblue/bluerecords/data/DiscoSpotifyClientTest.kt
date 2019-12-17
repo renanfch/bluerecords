@@ -1,6 +1,6 @@
 package br.com.beblue.bluerecords.data
 
-import br.com.beblue.bluerecords.core.entity.Genero
+import br.com.beblue.bluerecords.core.entitidade.Genero
 import br.com.beblue.bluerecords.core.repositorio.DiscoSpotifyClient
 import org.junit.jupiter.api.Test
 import org.junit.runner.RunWith
@@ -19,7 +19,7 @@ internal class DiscoSpotifyClientTest {
     @Test
     fun buscarMusicasPorGenero()
     {
-        val teste = discoSpotifyClient.buscarDiscos(Genero(1, "rock"))
+//        val teste = discoSpotifyClient.buscarDiscos(Genero(1, "rock"))
     }
 
 }

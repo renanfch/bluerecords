@@ -1,20 +1,18 @@
 package br.com.beblue.bluerecords.data.disco
 
-import br.com.beblue.bluerecords.core.entity.Genero
+import br.com.beblue.bluerecords.core.command.CadastraDiscoCommand
+import br.com.beblue.bluerecords.core.entitidade.Genero
 import br.com.beblue.bluerecords.core.repositorio.DiscoSpotifyClient
-import br.com.beblue.bluerecords.core.usecase.disco.command.CadastrarDiscoCommand
 import br.com.beblue.bluerecords.data.disco.dto.DiscoResponseDTO
 import br.com.beblue.bluerecords.data.disco.mapper.toCadastrarDiscoCommand
-import com.neovisionaries.i18n.CountryCode
 import com.wrapper.spotify.SpotifyApi
 import com.wrapper.spotify.model_objects.specification.Paging
 import com.wrapper.spotify.model_objects.specification.Track
 
 class DiscoSpotifyClientImpl(private val spotifyApi: SpotifyApi) : DiscoSpotifyClient {
 
-
     //Busca os primeiros 50 discos não repetidos, se buscar apenas uma vez vem vários repetidos.
-    override fun buscarDiscos(genero: Genero, limit: Int, offset: Int): List<CadastrarDiscoCommand> {
+    override fun buscarDiscos(genero: Genero, limit: Int, offset: Int): List<CadastraDiscoCommand> {
         val discos = mutableListOf<DiscoResponseDTO>()
         var off = offset
 

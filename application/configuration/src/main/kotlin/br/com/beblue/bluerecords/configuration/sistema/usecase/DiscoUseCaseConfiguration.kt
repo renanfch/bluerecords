@@ -2,8 +2,8 @@ package br.com.beblue.bluerecords.configuration.sistema.usecase
 
 import br.com.beblue.bluerecords.core.repositorio.DiscoRepositorio
 import br.com.beblue.bluerecords.core.repositorio.DiscoSpotifyClient
-import br.com.beblue.bluerecords.core.usecase.disco.DiscoUseCase
-import br.com.beblue.bluerecords.core.usecase.disco.DiscoUseCaseImpl
+import br.com.beblue.bluerecords.core.usecase.DiscoUseCase
+import br.com.beblue.bluerecords.core.usecase.DiscoUseCaseImpl
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 

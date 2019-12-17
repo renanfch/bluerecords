@@ -1,6 +1,6 @@
 package br.com.beblue.bluerecords.data.genero
 
-import br.com.beblue.bluerecords.core.entity.Genero
+import br.com.beblue.bluerecords.core.entitidade.Genero
 import br.com.beblue.bluerecords.core.repositorio.GeneroRepositorio
 import br.com.beblue.bluerecords.data.genero.mapper.GeneroRowMapper
 import org.springframework.jdbc.core.JdbcTemplate

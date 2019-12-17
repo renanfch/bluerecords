@@ -1,8 +1,8 @@
 package br.com.beblue.bluerecords.data.disco
 
-import br.com.beblue.bluerecords.core.entity.Disco
+import br.com.beblue.bluerecords.core.command.CadastraDiscoCommand
+import br.com.beblue.bluerecords.core.entitidade.Disco
 import br.com.beblue.bluerecords.core.repositorio.DiscoRepositorio
-import br.com.beblue.bluerecords.core.usecase.disco.command.CadastrarDiscoCommand
 import br.com.beblue.bluerecords.data.disco.mapper.DiscoRowMapper
 import org.springframework.jdbc.core.JdbcTemplate
 import org.springframework.jdbc.support.GeneratedKeyHolder
@@ -16,7 +16,7 @@ class DiscoRepositorioImpl(private val jdbcTemplate: JdbcTemplate) : DiscoReposi
 
     private val SELECT_DISCO = " SELECT id_disco, id_genero, nome, valor FROM disco_tbl; "
 
-    override fun cadastrar(command: CadastrarDiscoCommand): Disco {
+    override fun cadastrar(command: CadastraDiscoCommand): Disco {
 
         val keyHolderDisco = GeneratedKeyHolder()
         jdbcTemplate.update({ conexao ->

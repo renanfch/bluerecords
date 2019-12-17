@@ -1,6 +1,6 @@
 package br.com.beblue.bluerecords.entrypoint.venda.controller.impl
 
-import br.com.beblue.bluerecords.core.usecase.venda.VendaUseCase
+import br.com.beblue.bluerecords.core.usecase.VendaUseCase
 import br.com.beblue.bluerecords.entrypoint.venda.dto.RegistrarVendaRequestDTO
 import br.com.beblue.bluerecords.entrypoint.venda.dto.RegistrarVendaResponseDTO
 import br.com.beblue.bluerecords.entrypoint.venda.dto.VendaResponseDTO
