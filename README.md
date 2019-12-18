@@ -39,6 +39,10 @@ temos duas vertentes:
     * **entity** - Entidades, objetos que representam o negócio
     * **use case** - Casos de uso do projeto, como um `Service`, implementa 
     funcionalidades e regras especificas de cada funcionalidade.
+    * **facade** - Quando é necessário utilizar mais de um useCase ao mesmo tempo, 
+    é sugerido utilizar um facade para isolar a complexidade.
+    * **command** - São comandos convertidos para executar no core para suportar evolução
+    do sistema ao longo do tempo.
 
 * **Data Provider** - Camada responsável em fornecer os dados para o `core`
 implementando suas interfaces.
@@ -53,7 +57,9 @@ também temos um ganho ao lidarmos com várias pessoas alterando o mesmo código
 
 ## Documentação
 
-**Buscar discos** GET http://localhost:9000/disco ?generoId={id}&pagina={pagina}&tamanho={tamanho}
+**Buscar discos** 
+
+GET http://localhost:9000/disco?generoId={id}&pagina={pagina}&tamanho={tamanho}
 
 Consulta: 
 
@@ -81,8 +87,6 @@ Retorno:
 **Buscar disco** 
 
 GET http://localhost:9000/disco/{id}
-
-*Exemplo* 
 
 Consulta: 
 
@@ -135,6 +139,8 @@ Consulta:
 
 http://localhost:9000/venda?dataFinal=01%2F01%2F2020&dataInicial=01%2F01%2F2019&pagina=1&tamanho=2
 
+Retorno: 
+
 ```json
 {
   "tamanho": 2,
@@ -176,12 +182,31 @@ http://localhost:9000/venda?dataFinal=01%2F01%2F2020&dataInicial=01%2F01%2F2019&
 }
 ```
 
+**Buscar venda** 
 
-Retorno: 
+GET http://localhost:9000/venda/{id}
 
+Consulta:
 
-**Buscar venda** GET http://localhost:9000/venda/{id}
+http://localhost:9000/venda/1
 
+```json
+{
+  "id": 1,
+  "idCliente": 1,
+  "dataVenda": "2019-01-01",
+  "itens": [
+    {
+      "idVendaItens": 1,
+      "idVenda": 1,
+      "idDisco": 1,
+      "valor": 10,
+      "cashBack": 2
+    }
+  ],
+  "mensagem": "Sucesso"
+}
+```
 
 
 ## Documentação dinâmica
@@ -195,3 +220,4 @@ Link: [http://localhost:9000/swagger-ui.html]
 
 ## Observações
 Tentei utilizar o mínimo de frameworks e bibliotecas possíveis, poderia ser utilizado JPA para persistência e paginação.
+O desenvolvimento foi iniciado com Kotlin, mas por se tratar de uma vaga para JAVA preferi fazer o core e os entrypoint em JAVA.
