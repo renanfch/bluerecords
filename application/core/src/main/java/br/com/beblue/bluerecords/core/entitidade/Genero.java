@@ -1,6 +1,10 @@
 package br.com.beblue.bluerecords.core.entitidade;
 
 public class Genero {
+
+    private Integer id;
+    private String descricao;
+
     public Genero(Integer id, String descricao) {
         this.id = id;
         this.descricao = descricao;
@@ -14,6 +18,4 @@ public class Genero {
         return descricao;
     }
 
-    private Integer id;
-    private String descricao;
 }

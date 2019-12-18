@@ -3,6 +3,7 @@ package br.com.beblue.bluerecords.core.entitidade;
 import br.com.beblue.bluerecords.core.entitidade.paginacao.Paginavel;
 
 public class Disco implements Paginavel {
+
     private Integer id;
     private Integer idGenero;
     private String nome;

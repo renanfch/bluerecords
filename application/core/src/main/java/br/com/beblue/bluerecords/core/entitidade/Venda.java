@@ -9,19 +9,22 @@ import java.util.List;
 
 public class Venda implements Paginavel {
 
-    public Integer getId() {
-        return id;
-    }
+    private Integer id;
+    private Integer idCliente;
+    private LocalDate dataVenda;
+    private List<VendaItem> vendaItens;
 
 
     public Venda(Integer id, Integer idCliente, LocalDate dataVenda) {
         this.id = id;
         this.idCliente = idCliente;
         this.dataVenda = dataVenda;
-        this.vendaItens = new ArrayList();
+        this.vendaItens = new ArrayList<>();
     }
 
-    private Integer id;
+    public Integer getId() {
+        return id;
+    }
 
     public Integer getIdCliente() {
         return idCliente;
@@ -35,13 +38,8 @@ public class Venda implements Paginavel {
         return Collections.unmodifiableList(vendaItens);
     }
 
-    public void adicionarItemVendido(VendaItem vendaItem)
-    {
+    public void adicionarItemVendido(VendaItem vendaItem) {
         this.vendaItens.add(vendaItem);
     }
-
-    private Integer idCliente;
-    private LocalDate dataVenda;
-    private List<VendaItem> vendaItens;
 
 }

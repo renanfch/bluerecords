@@ -1,6 +1,12 @@
 package br.com.beblue.bluerecords.core.entitidade;
 
 public class CashBack {
+
+    private Integer id;
+    private Integer idGenero;
+    private Integer diaSemana;
+    private Double porcentagemCashBack;
+
     public CashBack(Integer id, Integer idGenero, Integer diaSemana, Double porcentagemCashBack) {
         this.id = id;
         this.idGenero = idGenero;
@@ -24,9 +30,6 @@ public class CashBack {
         return porcentagemCashBack;
     }
 
-    private Integer id;
-    private Integer idGenero;
-    private Integer diaSemana;
-    private Double porcentagemCashBack;
+
 }
 

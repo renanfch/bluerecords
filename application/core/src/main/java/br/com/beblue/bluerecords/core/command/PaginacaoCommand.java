@@ -5,6 +5,11 @@ public class PaginacaoCommand {
     private Integer tamanho;
     private Integer total;
 
+    public PaginacaoCommand(Integer pagina, Integer tamanho) {
+        this.pagina = pagina;
+        this.tamanho = tamanho;
+    }
+
     public Integer getTotal() {
         return total;
     }
@@ -20,11 +25,10 @@ public class PaginacaoCommand {
     public Integer getTamanho() {
         return tamanho;
     }
-    public Integer getOffset()
-    {
-        if(pagina == 1 || pagina == 0)
-            return 0;
 
+    public Integer getOffset() {
+        if (pagina == 1 || pagina == 0)
+            return 0;
         return tamanho * (pagina - 1);
     }
 
@@ -32,8 +36,5 @@ public class PaginacaoCommand {
         this.tamanho = tamanho;
     }
 
-    public PaginacaoCommand(Integer pagina, Integer tamanho) {
-        this.pagina = pagina;
-        this.tamanho = tamanho;
-    }
+
 }

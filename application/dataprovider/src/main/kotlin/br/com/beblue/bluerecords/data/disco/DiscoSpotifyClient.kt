@@ -16,11 +16,10 @@ class DiscoSpotifyClientImpl(private val spotifyApi: SpotifyApi) : DiscoSpotifyC
         val discos = mutableListOf<DiscoResponseDTO>()
         var off = offset
 
-        while (discos.size<50)
-        {
+        while (discos.size < 50) {
             val musicas = buscarMusicasPorGenero(genero.descricao, limit, off).items
 
-            musicas.forEach{ it ->
+            musicas.forEach { it ->
                 if (!discos.any { discoResponse ->
                         discoResponse.nome == it.album.name
                     })

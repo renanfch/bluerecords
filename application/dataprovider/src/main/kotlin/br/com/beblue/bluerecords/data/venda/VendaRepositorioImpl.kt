@@ -20,8 +20,9 @@ open class VendaRepositorioImpl(private val jdbcTemplate: JdbcTemplate) : VendaR
     private val INSERT_VENDA = " INSERT INTO venda_tbl  ( id_cliente, data_venda )" +
             " VALUES ( ?,? ); "
 
-    private val INSERT_VENDA_ITENS = " INSERT INTO venda_itens_tbl  ( id_venda, id_discos,valor, quantidade,cash_back )" +
-            " VALUES ( ?,?,?,?,? ); "
+    private val INSERT_VENDA_ITENS =
+        " INSERT INTO venda_itens_tbl  ( id_venda, id_discos,valor, quantidade,cash_back )" +
+                " VALUES ( ?,?,?,?,? ); "
 
     private val SELECT_VENDA = " SELECT venda_tbl.id_venda, venda_tbl.id_cliente, venda_tbl.data_venda  " +
             " FROM venda_tbl " +
@@ -114,7 +115,7 @@ open class VendaRepositorioImpl(private val jdbcTemplate: JdbcTemplate) : VendaR
             arrayOf(id),
             VendaRowMapper()
         )
-        if(vendas.size<=0)
+        if (vendas.size <= 0)
             return null
 
         val venda = vendas[0]
