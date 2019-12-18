@@ -27,14 +27,14 @@ public class DiscoRestController {
 
     private DiscoUseCase discoUseCase;
 
-    @GetMapping("discos/{id}")
+    @GetMapping("disco/{id}")
     public ResponseEntity<DiscoResponseDTO> consultarDisco(Integer id) {
         DiscoResponseMapper discoResponseMapper = new DiscoResponseMapper();
         Disco disco = discoUseCase.consultar(id);
         return discoResponseMapper.toResponse(disco);
     }
 
-    @GetMapping("/discos")
+    @GetMapping("/disco")
     public ResponseEntity<PaginacaoDTO<DiscoResponseDTO>> consultarDiscos(DiscoRequestDTO discoRequestDTO) {
         DiscoRequestMapper discoRequestMapper = new DiscoRequestMapper();
         DiscoResponseMapper discoResponseMapper = new DiscoResponseMapper();

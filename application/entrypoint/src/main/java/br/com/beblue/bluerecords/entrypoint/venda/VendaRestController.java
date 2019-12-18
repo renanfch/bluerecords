@@ -47,7 +47,7 @@ public class VendaRestController {
         return consultaVendaMapper.vendaToResponseDTO(venda);
     }
 
-    @GetMapping("/vendas")
+    @GetMapping("/venda")
     public ResponseEntity<PaginacaoDTO<ConsultarVendaResponseDTO>> consultarVendas(ConsultarVendaDTO consultarVendaDTO) {
         if (!ValidaConsultaVenda.valida(consultarVendaDTO))
             return ResponseEntity.status(HttpStatus.PRECONDITION_FAILED).body(new PaginacaoDTO<>("Dados de Entrada não são válidos."));
