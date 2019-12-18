@@ -19,7 +19,7 @@ jobs:
           name: Blue Records - Build/Tests
           command: |
             ./gradlew build
-            ./gradlew jacocoFullReport
+#            ./gradlew jacocoFullReport
       - save_cache:
           paths:
             - ~/.gradle/wrapper

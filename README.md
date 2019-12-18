@@ -1,10 +1,10 @@
-# Blue Records
+![Issues](https://img.shields.io/github/issues/renanfch/bluerecords.svg) ![Forks](https://img.shields.io/github/forks/renanfch/bluerecords.svg) ![Stars](https://img.shields.io/github/stars/renanfch/bluerecords.svg) ![Release Version](https://img.shields.io/github/release/renanfch/bluerecords.svg)
+<p align="center">
+    <img src="documentation/images/logoBlueRecords.png" width="450" >
+</p>
+
+# Blue Records [![CircleCI](https://circleci.com/gh/renanfch/bluerecords.svg?style=svg)](https://circleci.com/gh/renanfch/bluerecords)
 API para compra e vendas de discos de vinil; 
-
-<img src="documentation/images/logoBlueRecords.png" width="400" >
-
-
-
 
 Stack utilizada:
 
@@ -20,7 +20,7 @@ Stack utilizada:
     * Ferramenta para cobertura de tests [`Jacoco`](https://www.jacoco.org)
 * Deploy: [`Gradle Cargo Plugin`](https://github.com/bmuschko/gradle-cargo-plugin)
 * Log: []
-* CI / CD: []
+* CI / CD: [`CircleCI`](https://circleci.com)
 
 ## Arquitetura
 
