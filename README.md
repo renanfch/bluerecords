@@ -53,7 +53,9 @@ também temos um ganho ao lidarmos com várias pessoas alterando o mesmo código
 
 ## Documentação
 
-**Buscar discos** GET http://localhost:9000/disco ?generoId={id}&pagina={pagina}&tamanho={tamanho}
+**Buscar discos** 
+
+GET http://localhost:9000/disco ?generoId={id}&pagina={pagina}&tamanho={tamanho}
 
 Consulta: 
 
@@ -135,6 +137,8 @@ Consulta:
 
 http://localhost:9000/venda?dataFinal=01%2F01%2F2020&dataInicial=01%2F01%2F2019&pagina=1&tamanho=2
 
+Retorno: 
+
 ```json
 {
   "tamanho": 2,
@@ -176,12 +180,27 @@ http://localhost:9000/venda?dataFinal=01%2F01%2F2020&dataInicial=01%2F01%2F2019&
 }
 ```
 
-
-Retorno: 
-
-
 **Buscar venda** GET http://localhost:9000/venda/{id}
 
+Consulta:
+http://localhost:9000/venda/1
+```json
+{
+  "id": 1,
+  "idCliente": 1,
+  "dataVenda": "2019-01-01",
+  "itens": [
+    {
+      "idVendaItens": 1,
+      "idVenda": 1,
+      "idDisco": 1,
+      "valor": 10,
+      "cashBack": 2
+    }
+  ],
+  "mensagem": "Sucesso"
+}
+```
 
 
 ## Documentação dinâmica
