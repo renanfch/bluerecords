@@ -1,8 +1,7 @@
-log:
-  sout: false
+server:
+  port: 8080
 
-  file:
-    enable: false
-
-  rabbit-mq:
-    enable: false
+spring:
+  h2:
+    console:
+      enabled: false

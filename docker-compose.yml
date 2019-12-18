@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+
+  rabbitmq:
+    container_name: rabbit-mq
+    image: rabbitmq:3-management-alpine
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+    networks:
+      - bluerecords-network
+    environment:
+      RABBITMQ_DEFAULT_USER: rabbitmq
+      RABBITMQ_DEFAULT_PASS: rabbitmq
+
+  blue-records:
+    image: beblue/blue-records-api
+    container_name: blue-records-api
+    restart: always
+
+    # Pode ser mapeado o volume do banco de dados
+    #    volumes:
+    #      - ~/blue-records/data:/data
+
+    ports:
+      - 8080:8080
+    networks:
+      - bluerecords-network
+
+networks:
+  bluerecords-network:
+    driver: bridge

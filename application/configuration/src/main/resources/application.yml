@@ -9,9 +9,9 @@ application:
 
 bluerecordsdb:
   database:
-    url: jdbc:h2:nio:./db/bluerecords_db;MODE=MySQL
-    user: root
-    password: 123456
+    url: \${DATABASE_URL:jdbc:h2:nio:./db/bluerecords_db;MODE=MySQL}
+    user: \${DATABASE_USER:root}
+    password: \${DATABASE_PASSWORD:123456}
     driver: org.h2.Driver
 
 spring:
@@ -31,17 +31,3 @@ spring:
     baseline-on-migrate: true
     validate-on-migrate: false
     enabled: true
-
-log:
-  enable: false
-  sout: true
-  basename: \${application.artifact-id}
-  version: \${application.version}
-
-  file:
-    enable: false
-    path: ./log/\${application.artifact-id}
-    mode: VERBOSE
-
-  rabbit-mq:
-    enable: false
