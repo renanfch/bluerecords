@@ -30,18 +30,15 @@ public class DiscoRestController {
 
     @GetMapping("disco/{id}")
     public ResponseEntity<DiscoResponseDTO> consultarDisco(@PathVariable Integer id) {
-        DiscoResponseMapper discoResponseMapper = new DiscoResponseMapper();
         Disco disco = discoUseCase.consultar(id);
-        return discoResponseMapper.toResponse(disco);
+        return DiscoResponseMapper.toResponse(disco);
     }
 
     @GetMapping("/disco")
     public ResponseEntity<PaginacaoDTO<DiscoResponseDTO>> consultarDiscos(DiscoRequestDTO discoRequestDTO) {
-        DiscoRequestMapper discoRequestMapper = new DiscoRequestMapper();
-        DiscoResponseMapper discoResponseMapper = new DiscoResponseMapper();
-        ConsultaDiscoCommand consultaDiscoCommand = discoRequestMapper.toCommand(discoRequestDTO);
+        ConsultaDiscoCommand consultaDiscoCommand = DiscoRequestMapper.toCommand(discoRequestDTO);
         Paginacao<Disco> discos = discoUseCase.consultarDiscos(consultaDiscoCommand);
-        return discoResponseMapper.toResponse(discos);
+        return DiscoResponseMapper.toResponse(discos);
     }
 
 

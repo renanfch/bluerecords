@@ -39,15 +39,13 @@ public class VendaRestController {
     }
 
     private RegistrarVendaResponseDTO verifyAndExecute(RegistrarVendaRequestDTO request) {
-        RegistrarVendaMapper registrarVendaMapper = new RegistrarVendaMapper();
-        return registrarVendaMapper.toResponseDTO(vendaCaseBackUseCase.registrarVenda(registrarVendaMapper.toCommand(request)));
+        return RegistrarVendaMapper.toResponseDTO(vendaCaseBackUseCase.registrarVenda(RegistrarVendaMapper.toCommand(request)));
     }
 
     @GetMapping("venda/{id}")
     public ResponseEntity<ConsultarVendaResponseDTO> consultarVenda(@PathVariable Integer id) {
-        ConsultaVendaMapper consultaVendaMapper = new ConsultaVendaMapper();
         Venda venda = vendaUseCase.consultarVendaPorId(id);
-        return consultaVendaMapper.vendaToResponseDTO(venda);
+        return ConsultaVendaMapper.vendaToResponseDTO(venda);
     }
 
     @GetMapping("/venda")
@@ -55,10 +53,9 @@ public class VendaRestController {
         if (!ValidaConsultaVenda.valida(consultarVendaDTO))
             return ResponseEntity.status(HttpStatus.PRECONDITION_FAILED).body(new PaginacaoDTO<>("Dados de Entrada não são válidos."));
 
-        ConsultaVendaMapper consultaVendaMapper = new ConsultaVendaMapper();
-        ConsultaVendaCommand consultaVendaCommand = consultaVendaMapper.toCommand(consultarVendaDTO);
+        ConsultaVendaCommand consultaVendaCommand = ConsultaVendaMapper.toCommand(consultarVendaDTO);
         Paginacao<Venda> vendas = vendaUseCase.consultarVendas(consultaVendaCommand);
-        return consultaVendaMapper.toDTO(vendas);
+        return ConsultaVendaMapper.toDTO(vendas);
     }
 
 
