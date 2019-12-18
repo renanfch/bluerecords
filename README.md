@@ -39,6 +39,10 @@ temos duas vertentes:
     * **entity** - Entidades, objetos que representam o negócio
     * **use case** - Casos de uso do projeto, como um `Service`, implementa 
     funcionalidades e regras especificas de cada funcionalidade.
+    * **facade** - Quando é necessário utilizar mais de um useCase ao mesmo tempo, 
+    é sugerido utilizar um facade para isolar a complexidade.
+    * **command** - São comandos convertidos para executar no core para suportar evolução
+    do sistema ao longo do tempo.
 
 * **Data Provider** - Camada responsável em fornecer os dados para o `core`
 implementando suas interfaces.
@@ -183,7 +187,9 @@ Retorno:
 GET http://localhost:9000/venda/{id}
 
 Consulta:
+
 http://localhost:9000/venda/1
+
 ```json
 {
   "id": 1,
@@ -214,3 +220,4 @@ Link: [http://localhost:9000/swagger-ui.html]
 
 ## Observações
 Tentei utilizar o mínimo de frameworks e bibliotecas possíveis, poderia ser utilizado JPA para persistência e paginação.
+O desenvolvimento foi iniciado com Kotlin, mas por se tratar de uma vaga para JAVA preferi fazer o core e os entrypoint em JAVA.
