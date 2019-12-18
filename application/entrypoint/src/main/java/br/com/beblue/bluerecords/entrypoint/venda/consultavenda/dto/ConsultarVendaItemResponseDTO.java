@@ -1,4 +1,4 @@
-package br.com.beblue.bluerecords.entrypoint.venda.dto.consultavenda.dto;
+package br.com.beblue.bluerecords.entrypoint.venda.consultavenda.dto;
 
 public class ConsultarVendaItemResponseDTO {
 

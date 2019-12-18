@@ -3,6 +3,9 @@ package br.com.beblue.bluerecords.entrypoint.util;
 import java.text.NumberFormat;
 
 public class DoubleUtil {
+
+    private DoubleUtil(){}
+
     public static Double parseDouble(Double value)
     {
         NumberFormat format = NumberFormat.getInstance();

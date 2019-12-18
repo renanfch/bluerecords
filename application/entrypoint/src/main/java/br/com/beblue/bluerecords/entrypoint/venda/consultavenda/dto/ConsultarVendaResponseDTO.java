@@ -1,4 +1,4 @@
-package br.com.beblue.bluerecords.entrypoint.venda.dto.consultavenda.dto;
+package br.com.beblue.bluerecords.entrypoint.venda.consultavenda.dto;
 
 import br.com.beblue.bluerecords.entrypoint.paginacao.PaginavelDTO;
 

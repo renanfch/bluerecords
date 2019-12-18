@@ -1,4 +1,4 @@
-package br.com.beblue.bluerecords.entrypoint.venda.dto.registravenda.dto;
+package br.com.beblue.bluerecords.entrypoint.venda.registravenda.dto;
 
 import java.util.List;
 

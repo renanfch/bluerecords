@@ -1,12 +1,12 @@
-package br.com.beblue.bluerecords.entrypoint.venda.dto.registravenda.mapper;
+package br.com.beblue.bluerecords.entrypoint.venda.registravenda.mapper;
 
 import br.com.beblue.bluerecords.core.command.RegistraVendaCommand;
 import br.com.beblue.bluerecords.core.command.RegistrarVendaItensCommand;
 import br.com.beblue.bluerecords.core.entitidade.Venda;
 import br.com.beblue.bluerecords.entrypoint.util.DataUtil;
 import br.com.beblue.bluerecords.entrypoint.util.DoubleUtil;
-import br.com.beblue.bluerecords.entrypoint.venda.dto.registravenda.dto.RegistrarVendaRequestDTO;
-import br.com.beblue.bluerecords.entrypoint.venda.dto.registravenda.dto.RegistrarVendaResponseDTO;
+import br.com.beblue.bluerecords.entrypoint.venda.registravenda.dto.RegistrarVendaRequestDTO;
+import br.com.beblue.bluerecords.entrypoint.venda.registravenda.dto.RegistrarVendaResponseDTO;
 import com.google.common.util.concurrent.AtomicDouble;
 
 import java.time.LocalDate;
@@ -15,7 +15,9 @@ import java.util.List;
 
 public class RegistrarVendaMapper {
 
-    public RegistraVendaCommand toCommand(RegistrarVendaRequestDTO registrarVendaRequestDTO) {
+    private RegistrarVendaMapper(){}
+
+    public static RegistraVendaCommand toCommand(RegistrarVendaRequestDTO registrarVendaRequestDTO) {
         List<RegistrarVendaItensCommand> itens = new ArrayList<>();
 
         registrarVendaRequestDTO.getRegistrarVendaItemRequestDTO().forEach(it ->
@@ -29,7 +31,7 @@ public class RegistrarVendaMapper {
                 itens);
     }
 
-    public RegistrarVendaResponseDTO toResponseDTO(Venda venda) {
+    public static RegistrarVendaResponseDTO toResponseDTO(Venda venda) {
         final AtomicDouble totalCashBack = new AtomicDouble(0);
         venda.getVendaItens().forEach(it -> totalCashBack.addAndGet(it.getCashBack()));
         return new RegistrarVendaResponseDTO(
