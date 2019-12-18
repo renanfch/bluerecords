@@ -15,4 +15,9 @@ public class DiscoResponseMapper {
         discos.getObjetos().forEach(it -> discosResponse.add(new DiscoResponseDTO(it.getNome(), it.getValor())));
         return new PaginacaoDTO<>(discos.getTamanho(), discos.getTotal(), discos.getPagina(), discosResponse);
     }
+
+    public DiscoResponseDTO toResponse(Disco disco)
+    {
+        return new DiscoResponseDTO(disco.getNome(), disco.getValor());
+    }
 }

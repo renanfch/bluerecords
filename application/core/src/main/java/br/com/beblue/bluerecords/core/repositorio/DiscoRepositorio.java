@@ -9,4 +9,5 @@ public interface DiscoRepositorio {
     Disco cadastrar(CadastraDiscoCommand command);
     Boolean existeDiscoCadastrado();
     Paginacao<Disco> consultarDiscos(ConsultaDiscoCommand command);
+    Disco consultar(Integer id);
 }

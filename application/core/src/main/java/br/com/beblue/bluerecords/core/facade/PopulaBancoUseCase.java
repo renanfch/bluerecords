@@ -24,7 +24,7 @@ public class PopulaBancoUseCase {
         List<Genero> generos = generoUseCase.buscarGenero();
         generos.forEach(genero -> {
             List<CadastraDiscoCommand> commands = discoUseCase.consultarDiscosParaCadastroPorGenero(genero);
-            commands.forEach(it -> discoUseCase.cadastrarDisco(it));
+            commands.forEach(it -> discoUseCase.cadastrar(it));
         });
     }
 }

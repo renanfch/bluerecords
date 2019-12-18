@@ -23,13 +23,16 @@ public class DiscoRestController {
     public DiscoRestController(DiscoUseCase discoUseCase) {
         this.discoUseCase = discoUseCase;
     }
-    private DiscoUseCase discoUseCase;
 
+    private DiscoUseCase discoUseCase;
 
     @GetMapping("discos/{id}")
     public DiscoResponseDTO consultarDisco(Integer id)
     {
-        return null;
+        DiscoResponseMapper discoResponseMapper = new DiscoResponseMapper();
+        Disco disco = discoUseCase.consultar(id);
+        DiscoResponseDTO discoDTO = discoResponseMapper.toResponse(disco);
+        return discoDTO;
     }
 
     @GetMapping("/discos")

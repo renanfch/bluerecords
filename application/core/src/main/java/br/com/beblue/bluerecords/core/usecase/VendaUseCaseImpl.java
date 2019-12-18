@@ -3,9 +3,8 @@ package br.com.beblue.bluerecords.core.usecase;
 import br.com.beblue.bluerecords.core.command.ConsultaVendaCommand;
 import br.com.beblue.bluerecords.core.command.RegistraVendaCommand;
 import br.com.beblue.bluerecords.core.entitidade.Venda;
+import br.com.beblue.bluerecords.core.paginacao.Paginacao;
 import br.com.beblue.bluerecords.core.repositorio.VendaRepositorio;
-
-import java.util.List;
 
 public class VendaUseCaseImpl implements VendaUseCase {
 
@@ -17,16 +16,16 @@ public class VendaUseCaseImpl implements VendaUseCase {
 
     @Override
     public Venda registrarVenda(RegistraVendaCommand command) {
-        return null;
+        return vendaRepositorio.cadastrar(command);
     }
 
     @Override
-    public List<Venda> consultarVendas(ConsultaVendaCommand command) {
-        return null;
+    public Paginacao<Venda> consultarVendas(ConsultaVendaCommand command) {
+        return vendaRepositorio.consultaVendas(command);
     }
 
     @Override
     public Venda consultarVendaPorId(Integer id) {
-        return null;
+        return vendaRepositorio.consulta(id);
     }
 }

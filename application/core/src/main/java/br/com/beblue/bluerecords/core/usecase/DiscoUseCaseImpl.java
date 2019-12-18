@@ -22,8 +22,9 @@ public class DiscoUseCaseImpl implements DiscoUseCase {
     }
 
     @Override
-    public Disco consultarDiscoPorId(Integer id) {
-        return null;
+    public Disco consultar(Integer id)
+    {
+        return discoRepositorio.consultar(id);
     }
 
     @Override
@@ -43,7 +44,7 @@ public class DiscoUseCaseImpl implements DiscoUseCase {
     }
 
     @Override
-    public Disco cadastrarDisco(CadastraDiscoCommand command) {
+    public Disco cadastrar(CadastraDiscoCommand command) {
         return discoRepositorio.cadastrar(command);
     }
 

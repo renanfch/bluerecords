@@ -18,6 +18,7 @@ class DiscoRepositorioImpl(private val jdbcTemplate: JdbcTemplate) : DiscoReposi
             " VALUES ( ?,?,? ); "
 
     private val SELECT_DISCO = " SELECT id_disco, id_genero, nome, valor FROM disco_tbl; "
+    private val SELECT_DISCO_POR_ID = " SELECT id_disco, id_genero, nome, valor FROM disco_tbl WHERE id_genero = ?; "
     private val SELECT_DISCO_POR_GENERO =
         " SELECT id_disco, id_genero, nome, valor FROM disco_tbl WHERE id_genero = ? " +
                 " LIMIT ? OFFSET ?; "
@@ -69,5 +70,16 @@ class DiscoRepositorioImpl(private val jdbcTemplate: JdbcTemplate) : DiscoReposi
             DiscoRowMapper()
         )
         return discoExists.size > 0
+    }
+
+    override fun consultar(id: Int?): Disco
+    {
+        val disco = jdbcTemplate.query(
+            SELECT_DISCO_POR_ID,
+            arrayOf(id),
+            DiscoRowMapper()
+        )
+
+        return disco[0]
     }
 }

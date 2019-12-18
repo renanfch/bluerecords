@@ -8,7 +8,9 @@ class VendaRowMapper : RowMapper<Venda> {
 
     override fun mapRow(rs: ResultSet, p1: Int): Venda? {
         return Venda(
-            rs.getInt("id")
+            rs.getInt("id_venda"),
+            rs.getInt("id_cliente"),
+            rs.getDate("data_venda").toLocalDate()
         )
     }
 

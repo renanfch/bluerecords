@@ -2,17 +2,20 @@ package br.com.beblue.bluerecords.entrypoint.venda.dto;
 
 public class RegistrarVendaResponseDTO
 {
-    public RegistrarVendaResponseDTO(Integer id) {
-        this.id = id;
-    }
-
     public Integer getId() {
         return id;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public String getMensagem() {
+        return mensagem;
     }
 
     private Integer id;
+    private String mensagem;
+
+    public RegistrarVendaResponseDTO(Integer id, String mensagem) {
+        this.id = id;
+        this.mensagem = mensagem;
+    }
+
 }

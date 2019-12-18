@@ -1,20 +1,29 @@
 package br.com.beblue.bluerecords.core.command;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class ConsultaVendaCommand {
-    public ConsultaVendaCommand(Date dataInicial, Date dataFinal) {
+
+    public ConsultaVendaCommand(LocalDate dataInicial, LocalDate dataFinal, PaginacaoCommand paginacaoCommand) {
         this.dataInicial = dataInicial;
         this.dataFinal = dataFinal;
+        this.paginacaoCommand = paginacaoCommand;
     }
 
-    public Date getDataInicial() {
+    public PaginacaoCommand getPaginacaoCommand() {
+        return paginacaoCommand;
+    }
+
+
+    public LocalDate getDataInicial() {
         return dataInicial;
     }
-    public Date getDataFinal() {
+
+    public LocalDate getDataFinal() {
         return dataFinal;
     }
 
-    private Date dataInicial;
-    private Date dataFinal;
+    private PaginacaoCommand paginacaoCommand;
+    private LocalDate dataInicial;
+    private LocalDate dataFinal;
 }
