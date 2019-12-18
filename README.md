@@ -84,8 +84,6 @@ Retorno:
 
 GET http://localhost:9000/disco/{id}
 
-*Exemplo* 
-
 Consulta: 
 
 http://localhost:9000/disco/1
