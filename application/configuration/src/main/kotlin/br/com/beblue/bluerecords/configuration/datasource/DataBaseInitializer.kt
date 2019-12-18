@@ -1,6 +1,6 @@
 package br.com.beblue.bluerecords.configuration.datasource
 
-import br.com.beblue.bluerecords.core.facade.PopulaBancoUseCase
+import br.com.beblue.bluerecords.core.usecase.facade.PopulaBancoUseCase
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.context.event.ApplicationReadyEvent
 import org.springframework.context.ApplicationListener

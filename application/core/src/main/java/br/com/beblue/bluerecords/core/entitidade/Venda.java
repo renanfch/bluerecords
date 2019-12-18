@@ -1,6 +1,6 @@
 package br.com.beblue.bluerecords.core.entitidade;
 
-import br.com.beblue.bluerecords.core.paginacao.Paginavel;
+import br.com.beblue.bluerecords.core.entitidade.paginacao.Paginavel;
 
 import java.time.LocalDate;
 import java.util.ArrayList;

@@ -3,7 +3,7 @@ package br.com.beblue.bluerecords.core.usecase;
 import br.com.beblue.bluerecords.core.command.ConsultaVendaCommand;
 import br.com.beblue.bluerecords.core.command.RegistraVendaCommand;
 import br.com.beblue.bluerecords.core.entitidade.Venda;
-import br.com.beblue.bluerecords.core.paginacao.Paginacao;
+import br.com.beblue.bluerecords.core.entitidade.paginacao.Paginacao;
 import br.com.beblue.bluerecords.core.repositorio.VendaRepositorio;
 
 public class VendaUseCaseImpl implements VendaUseCase {

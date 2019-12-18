@@ -1,7 +1,7 @@
 package br.com.beblue.bluerecords.entrypoint.disco.mapper;
 
 import br.com.beblue.bluerecords.core.entitidade.Disco;
-import br.com.beblue.bluerecords.core.paginacao.Paginacao;
+import br.com.beblue.bluerecords.core.entitidade.paginacao.Paginacao;
 import br.com.beblue.bluerecords.entrypoint.paginacao.PaginacaoDTO;
 import br.com.beblue.bluerecords.entrypoint.disco.dto.DiscoResponseDTO;
 import org.springframework.http.HttpStatus;

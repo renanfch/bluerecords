@@ -2,8 +2,9 @@ package br.com.beblue.bluerecords.entrypoint.venda;
 
 import br.com.beblue.bluerecords.core.command.ConsultaVendaCommand;
 import br.com.beblue.bluerecords.core.entitidade.Venda;
-import br.com.beblue.bluerecords.core.paginacao.Paginacao;
+import br.com.beblue.bluerecords.core.entitidade.paginacao.Paginacao;
 import br.com.beblue.bluerecords.core.usecase.VendaUseCase;
+import br.com.beblue.bluerecords.core.usecase.facade.VendaComCashBackUseCash;
 import br.com.beblue.bluerecords.entrypoint.paginacao.PaginacaoDTO;
 import br.com.beblue.bluerecords.entrypoint.venda.dto.consultavenda.ConsultarVendaDTO;
 import br.com.beblue.bluerecords.entrypoint.venda.dto.consultavenda.ConsultarVendaResponseDTO;
@@ -23,10 +24,12 @@ import org.springframework.web.bind.annotation.*;
         tags = {"ConsultaVendas"}
 )
 public class VendaRestController {
-    public VendaRestController(VendaUseCase vendaUseCase) {
+    public VendaRestController(VendaUseCase vendaUseCase, VendaComCashBackUseCash vendaCaseBackUseCase) {
         this.vendaUseCase = vendaUseCase;
+        this.vendaCaseBackUseCase = vendaCaseBackUseCase;
     }
 
+    private VendaComCashBackUseCash vendaCaseBackUseCase;
     private VendaUseCase vendaUseCase;
 
     @PostMapping("/venda")
@@ -37,7 +40,7 @@ public class VendaRestController {
 
     private RegistrarVendaResponseDTO verifyAndExecute(RegistrarVendaRequestDTO request) {
         RegistrarVendaMapper registrarVendaMapper = new RegistrarVendaMapper();
-        return registrarVendaMapper.toResponseDTO(vendaUseCase.registrarVenda(registrarVendaMapper.toCommand(request)));
+        return registrarVendaMapper.toResponseDTO(vendaCaseBackUseCase.registrarVenda(registrarVendaMapper.toCommand(request)));
     }
 
     @GetMapping("venda/{id}")
@@ -55,7 +58,7 @@ public class VendaRestController {
         ConsultaVendaMapper consultaVendaMapper = new ConsultaVendaMapper();
         ConsultaVendaCommand consultaVendaCommand = consultaVendaMapper.toCommand(consultarVendaDTO);
         Paginacao<Venda> vendas = vendaUseCase.consultarVendas(consultaVendaCommand);
-        return  consultaVendaMapper.toDTO(vendas);
+        return consultaVendaMapper.toDTO(vendas);
     }
 
 

@@ -4,7 +4,7 @@ import br.com.beblue.bluerecords.core.command.ConsultaVendaCommand;
 import br.com.beblue.bluerecords.core.command.PaginacaoCommand;
 import br.com.beblue.bluerecords.core.entitidade.Venda;
 import br.com.beblue.bluerecords.core.entitidade.VendaItem;
-import br.com.beblue.bluerecords.core.paginacao.Paginacao;
+import br.com.beblue.bluerecords.core.entitidade.paginacao.Paginacao;
 import br.com.beblue.bluerecords.entrypoint.paginacao.PaginacaoDTO;
 import br.com.beblue.bluerecords.entrypoint.util.DataUtil;
 import br.com.beblue.bluerecords.entrypoint.venda.dto.consultavenda.ConsultarVendaDTO;

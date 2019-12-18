@@ -1,7 +1,7 @@
 CREATE TABLE disco_tbl
 (
     id_disco  INT NOT NULL AUTO_INCREMENT,
-    id_genero varchar(255),
+    id_genero INT,
     nome      varchar(255),
     valor     decimal(12, 2),
     PRIMARY KEY (id_disco)
@@ -45,6 +45,7 @@ CREATE TABLE venda_itens_tbl
     id_venda       int,
     id_discos      int,
     valor          decimal(12, 2),
+    quantidade     int,
     cash_back      int,
     PRIMARY KEY (id_venda_itens)
 ) ENGINE = InnoDB

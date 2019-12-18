@@ -2,7 +2,7 @@ package br.com.beblue.bluerecords.entrypoint.venda.dto.consultavenda;
 
 public class ConsultarVendaItemResponseDTO {
 
-    public ConsultarVendaItemResponseDTO(Integer idVendaItens, Integer idVenda, Integer idDisco, Double valor, Integer cashBack) {
+    public ConsultarVendaItemResponseDTO(Integer idVendaItens, Integer idVenda, Integer idDisco, Double valor, Double cashBack) {
         this.idVendaItens = idVendaItens;
         this.idVenda = idVenda;
         this.idDisco = idDisco;
@@ -26,7 +26,7 @@ public class ConsultarVendaItemResponseDTO {
         return valor;
     }
 
-    public Integer getCashBack() {
+    public Double getCashBack() {
         return cashBack;
     }
 
@@ -34,6 +34,6 @@ public class ConsultarVendaItemResponseDTO {
     private Integer idVenda;
     private Integer idDisco;
     private Double valor;
-    private Integer cashBack;
+    private Double cashBack;
 
 }

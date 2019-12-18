@@ -4,7 +4,7 @@ import br.com.beblue.bluerecords.core.command.CadastraDiscoCommand;
 import br.com.beblue.bluerecords.core.command.ConsultaDiscoCommand;
 import br.com.beblue.bluerecords.core.entitidade.Disco;
 import br.com.beblue.bluerecords.core.entitidade.Genero;
-import br.com.beblue.bluerecords.core.paginacao.Paginacao;
+import br.com.beblue.bluerecords.core.entitidade.paginacao.Paginacao;
 
 import java.util.List;
 

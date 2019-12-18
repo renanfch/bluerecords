@@ -2,28 +2,21 @@ package br.com.beblue.bluerecords.entrypoint.venda.dto.registravenda;
 
 public class RegistrarVendaItemRequestDTO {
     public RegistrarVendaItemRequestDTO() {
-
     }
 
-    public RegistrarVendaItemRequestDTO(Integer idDisco, Double valor, Integer cashBack) {
+    public RegistrarVendaItemRequestDTO(Integer idDisco, Integer quantidade) {
         this.idDisco = idDisco;
-        this.valor = valor;
-        this.cashBack = cashBack;
+        this.quantidade = quantidade;
     }
 
     public Integer getIdDisco() {
         return idDisco;
     }
 
-    public Double getValor() {
-        return valor;
-    }
-
-    public Integer getCashBack() {
-        return cashBack;
+    public Integer getQuantidade() {
+        return quantidade;
     }
 
     private Integer idDisco;
-    private Double valor;
-    private Integer cashBack;
+    private Integer quantidade;
 }

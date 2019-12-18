@@ -9,18 +9,14 @@ public class RegistrarVendaRequestDTO {
 
     }
 
-    public RegistrarVendaRequestDTO(Integer id, LocalDate date, Integer idCliente, List<RegistrarVendaItemRequestDTO> registrarVendaItemRequestDTO) {
-        this.id = id;
+    public RegistrarVendaRequestDTO(String date, Integer idCliente, List<RegistrarVendaItemRequestDTO> registrarVendaItemRequestDTO) {
         this.date = date;
         this.idCliente = idCliente;
         this.registrarVendaItemRequestDTO = registrarVendaItemRequestDTO;
     }
 
-    public Integer getId() {
-        return id;
-    }
 
-    public LocalDate getDate() {
+    public String getDate() {
         return date;
     }
 
@@ -32,8 +28,7 @@ public class RegistrarVendaRequestDTO {
         return registrarVendaItemRequestDTO;
     }
 
-    private Integer id;
-    private LocalDate date;
+    private String date;
     private Integer idCliente;
     private List<RegistrarVendaItemRequestDTO> registrarVendaItemRequestDTO;
 }

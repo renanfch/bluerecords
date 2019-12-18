@@ -1,4 +1,4 @@
-package br.com.beblue.bluerecords.core.facade;
+package br.com.beblue.bluerecords.core.usecase.facade;
 
 import br.com.beblue.bluerecords.core.command.CadastraDiscoCommand;
 import br.com.beblue.bluerecords.core.entitidade.Genero;
@@ -7,9 +7,9 @@ import br.com.beblue.bluerecords.core.usecase.GeneroUseCase;
 
 import java.util.List;
 
-public class PopulaBancoUseCase {
+public class PopulaBancoUseCaseImpl implements PopulaBancoUseCase {
 
-    public PopulaBancoUseCase(DiscoUseCase discoUseCase, GeneroUseCase generoUseCase) {
+    public PopulaBancoUseCaseImpl(DiscoUseCase discoUseCase, GeneroUseCase generoUseCase) {
         this.discoUseCase = discoUseCase;
         this.generoUseCase = generoUseCase;
     }
@@ -17,10 +17,12 @@ public class PopulaBancoUseCase {
     private DiscoUseCase discoUseCase;
     private GeneroUseCase generoUseCase;
 
+    @Override
     public void populaBancoDeDados() {
         if (discoUseCase.discosForamCadastrados()) {
             return;
         }
+
         List<Genero> generos = generoUseCase.buscarGenero();
         generos.forEach(genero -> {
             List<CadastraDiscoCommand> commands = discoUseCase.consultarDiscosParaCadastroPorGenero(genero);

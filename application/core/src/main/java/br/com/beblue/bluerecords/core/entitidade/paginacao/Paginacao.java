@@ -1,4 +1,4 @@
-package br.com.beblue.bluerecords.core.paginacao;
+package br.com.beblue.bluerecords.core.entitidade.paginacao;
 
 import java.util.List;
 

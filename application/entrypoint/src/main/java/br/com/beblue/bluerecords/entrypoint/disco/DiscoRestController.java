@@ -2,7 +2,7 @@ package br.com.beblue.bluerecords.entrypoint.disco;
 
 import br.com.beblue.bluerecords.core.command.ConsultaDiscoCommand;
 import br.com.beblue.bluerecords.core.entitidade.Disco;
-import br.com.beblue.bluerecords.core.paginacao.Paginacao;
+import br.com.beblue.bluerecords.core.entitidade.paginacao.Paginacao;
 import br.com.beblue.bluerecords.core.usecase.DiscoUseCase;
 import br.com.beblue.bluerecords.entrypoint.paginacao.PaginacaoDTO;
 import br.com.beblue.bluerecords.entrypoint.disco.dto.DiscoRequestDTO;

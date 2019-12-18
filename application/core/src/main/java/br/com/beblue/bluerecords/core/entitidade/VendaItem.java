@@ -6,14 +6,17 @@ public class VendaItem {
     private Integer idVenda;
     private Integer idDisco;
     private Double valor;
-    private Integer cashBack;
+    private Double cashBack;
+    private Integer quantidade;
 
-    public VendaItem(Integer id, Integer idVenda, Integer idDisco, Double valor, Integer cashBack) {
+
+    public VendaItem(Integer id, Integer idVenda, Integer idDisco, Double valor, Integer quantidade, Double cashBack) {
         this.id = id;
         this.idVenda = idVenda;
         this.idDisco = idDisco;
         this.valor = valor;
         this.cashBack = cashBack;
+        this.quantidade = quantidade;
     }
 
     public Integer getId() {
@@ -32,10 +35,12 @@ public class VendaItem {
         return valor;
     }
 
-    public Integer getCashBack() {
+    public Double getCashBack() {
         return cashBack;
     }
 
-
+    public Integer getQuantidade() {
+        return quantidade;
+    }
 
 }

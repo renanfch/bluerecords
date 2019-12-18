@@ -6,7 +6,6 @@ import java.util.List;
 
 public class RegistraVendaCommand {
 
-    private Integer id;
     private LocalDate date;
     private Integer idCliente;
     List<RegistrarVendaItensCommand> registrarVendaItensCommand;
@@ -24,12 +23,7 @@ public class RegistraVendaCommand {
         return date;
     }
 
-    public Integer getId() {
-        return id;
-    }
-
-    public RegistraVendaCommand(Integer id, LocalDate date, Integer idCliente, List<RegistrarVendaItensCommand> registrarVendaItensCommand) {
-        this.id = id;
+    public RegistraVendaCommand(LocalDate date, Integer idCliente, List<RegistrarVendaItensCommand> registrarVendaItensCommand) {
         this.date = date;
         this.idCliente = idCliente;
         this.registrarVendaItensCommand = registrarVendaItensCommand;

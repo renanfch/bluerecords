@@ -5,7 +5,7 @@ import br.com.beblue.bluerecords.core.command.RegistraVendaCommand
 import br.com.beblue.bluerecords.core.command.RegistrarVendaItensCommand
 import br.com.beblue.bluerecords.core.entitidade.Venda
 import br.com.beblue.bluerecords.core.entitidade.VendaItem
-import br.com.beblue.bluerecords.core.paginacao.Paginacao
+import br.com.beblue.bluerecords.core.entitidade.paginacao.Paginacao
 import br.com.beblue.bluerecords.core.repositorio.VendaRepositorio
 import br.com.beblue.bluerecords.data.venda.mapper.VendaItemRowMapper
 import br.com.beblue.bluerecords.data.venda.mapper.VendaRowMapper
@@ -19,8 +19,9 @@ open class VendaRepositorioImpl(private val jdbcTemplate: JdbcTemplate) : VendaR
 
     private val INSERT_VENDA = " INSERT INTO venda_tbl  ( id_cliente, data_venda )" +
             " VALUES ( ?,? ); "
-    private val INSERT_VENDA_ITENS = " INSERT INTO venda_itens_tbl  ( id_venda, id_discos,valor,cash_back )" +
-            " VALUES ( ?,?,?,? ); "
+
+    private val INSERT_VENDA_ITENS = " INSERT INTO venda_itens_tbl  ( id_venda, id_discos,valor, quantidade,cash_back )" +
+            " VALUES ( ?,?,?,?,? ); "
 
     private val SELECT_VENDA = " SELECT venda_tbl.id_venda, venda_tbl.id_cliente, venda_tbl.data_venda  " +
             " FROM venda_tbl " +
@@ -31,7 +32,7 @@ open class VendaRepositorioImpl(private val jdbcTemplate: JdbcTemplate) : VendaR
             " WHERE venda_tbl.data_venda BETWEEN ? AND ? " +
             " LIMIT ? OFFSET ?; "
 
-    private val SELECT_VENDA_ITEM = " SELECT id_venda_itens,id_venda, id_discos, valor, cash_back " +
+    private val SELECT_VENDA_ITEM = " SELECT id_venda_itens,id_venda, id_discos, valor, quantidade, cash_back " +
             " FROM venda_itens_tbl " +
             " WHERE venda_itens_tbl.id_venda_itens = ?; "
 
@@ -64,11 +65,12 @@ open class VendaRepositorioImpl(private val jdbcTemplate: JdbcTemplate) : VendaR
             ps.setInt(1, idVenda)
             ps.setInt(2, command.idDisco)
             ps.setDouble(3, command.valor)
-            ps.setInt(4, command.cashBack)
+            ps.setInt(4, command.quantidade)
+            ps.setDouble(5, command.cashBack)
             ps
         }, keyHolderVendaItem)
         val idVendaItens = keyHolderVendaItem.key?.toInt() ?: 0
-        return VendaItem(idVendaItens, idVenda, command.idDisco, command.valor, command.cashBack)
+        return VendaItem(idVendaItens, idVenda, command.idDisco, command.valor, command.quantidade, command.cashBack)
     }
 
     override fun consultaVendas(command: ConsultaVendaCommand): Paginacao<Venda> {

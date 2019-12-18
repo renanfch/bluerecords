@@ -12,7 +12,8 @@ class VendaItemRowMapper : RowMapper<VendaItem> {
             rs.getInt("id_venda"),
             rs.getInt("id_discos"),
             rs.getDouble("valor"),
-            rs.getInt("cash_back")
+            rs.getInt("quantidade"),
+            rs.getDouble("cash_back")
         )
     }
 
