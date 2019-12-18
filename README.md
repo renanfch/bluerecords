@@ -1,5 +1,8 @@
 # Blue Records
 
+<img src="documentation/images/logoBlueRecords.png" width="400" >
+
+
 API para compra e vendas de discos de vinil; 
 
 Stack utilizada:
