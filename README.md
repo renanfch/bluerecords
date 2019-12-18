@@ -55,7 +55,7 @@ também temos um ganho ao lidarmos com várias pessoas alterando o mesmo código
 
 **Buscar discos** 
 
-GET http://localhost:9000/disco ?generoId={id}&pagina={pagina}&tamanho={tamanho}
+GET http://localhost:9000/disco?generoId={id}&pagina={pagina}&tamanho={tamanho}
 
 Consulta: 
 
@@ -180,7 +180,9 @@ Retorno:
 }
 ```
 
-**Buscar venda** GET http://localhost:9000/venda/{id}
+**Buscar venda** 
+
+GET http://localhost:9000/venda/{id}
 
 Consulta:
 http://localhost:9000/venda/1
