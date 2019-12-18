@@ -7,6 +7,16 @@ public class DiscoResponseDTO implements PaginavelDTO
     private String nome;
     private Double valor;
 
+    public DiscoResponseDTO(String nome) {
+        this.nome = nome;
+    }
+
+    public String getMensagem() {
+        return mensagem;
+    }
+
+    private String mensagem;
+
     public DiscoResponseDTO(String nome, Double valor)
     {
         this.nome = nome;

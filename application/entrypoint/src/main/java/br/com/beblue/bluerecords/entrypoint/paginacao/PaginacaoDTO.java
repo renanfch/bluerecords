@@ -25,7 +25,15 @@ public class PaginacaoDTO<T extends PaginavelDTO> {
     private Integer pagina;
     private List<T> objetos;
 
-    public PaginacaoDTO(Integer tamanho, Integer total, Integer pagina, List<T> objetos) {
+    private String mensagem;
+    public String getMensagem(){ return mensagem; }
+    public PaginacaoDTO(String mensagem)
+    {
+        this.mensagem = mensagem;
+    }
+
+    public PaginacaoDTO(Integer tamanho, Integer total, Integer pagina, List<T> objetos)
+    {
         this.tamanho = tamanho;
         this.total = total;
         this.pagina = pagina;

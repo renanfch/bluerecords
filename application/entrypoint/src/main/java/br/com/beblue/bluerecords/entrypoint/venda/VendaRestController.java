@@ -5,10 +5,16 @@ import br.com.beblue.bluerecords.core.entitidade.Venda;
 import br.com.beblue.bluerecords.core.paginacao.Paginacao;
 import br.com.beblue.bluerecords.core.usecase.VendaUseCase;
 import br.com.beblue.bluerecords.entrypoint.paginacao.PaginacaoDTO;
-import br.com.beblue.bluerecords.entrypoint.venda.dto.*;
-import br.com.beblue.bluerecords.entrypoint.venda.mapper.ConsultaVendaMapper;
-import br.com.beblue.bluerecords.entrypoint.venda.mapper.RegistrarVendaMapper;
+import br.com.beblue.bluerecords.entrypoint.venda.dto.consultavenda.ConsultarVendaDTO;
+import br.com.beblue.bluerecords.entrypoint.venda.dto.consultavenda.ConsultarVendaResponseDTO;
+import br.com.beblue.bluerecords.entrypoint.venda.dto.consultavenda.validacao.ValidaConsultaVenda;
+import br.com.beblue.bluerecords.entrypoint.venda.dto.registravenda.RegistrarVendaRequestDTO;
+import br.com.beblue.bluerecords.entrypoint.venda.dto.registravenda.RegistrarVendaResponseDTO;
+import br.com.beblue.bluerecords.entrypoint.venda.dto.consultavenda.mapper.ConsultaVendaMapper;
+import br.com.beblue.bluerecords.entrypoint.venda.dto.registravenda.mapper.RegistrarVendaMapper;
 import io.swagger.annotations.Api;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -24,7 +30,7 @@ public class VendaRestController {
     private VendaUseCase vendaUseCase;
 
     @PostMapping("/venda")
-    public RegistrarVendaResponseDTO registrarVenda(@RequestBody  RegistrarVendaRequestDTO request) {
+    public RegistrarVendaResponseDTO registrarVenda(@RequestBody RegistrarVendaRequestDTO request) {
         RegistrarVendaResponseDTO response = verifyAndExecute(request);
         return response;
     }
@@ -35,20 +41,21 @@ public class VendaRestController {
     }
 
     @GetMapping("venda/{id}")
-    public ConsultarVendaResponseDTO consultarVenda(@PathVariable Integer id) {
+    public ResponseEntity<ConsultarVendaResponseDTO> consultarVenda(@PathVariable Integer id) {
         ConsultaVendaMapper consultaVendaMapper = new ConsultaVendaMapper();
         Venda venda = vendaUseCase.consultarVendaPorId(id);
-        ConsultarVendaResponseDTO vendaResponseDTO = consultaVendaMapper.vendaToResponseDTO(venda);
-        return vendaResponseDTO;
+        return consultaVendaMapper.vendaToResponseDTO(venda);
     }
 
     @GetMapping("/vendas")
-    public PaginacaoDTO<ConsultarVendaResponseDTO> consultarVendas(ConsultarVendaDTO consultarVendaDTO) {
+    public ResponseEntity<PaginacaoDTO<ConsultarVendaResponseDTO>> consultarVendas(ConsultarVendaDTO consultarVendaDTO) {
+        if (!ValidaConsultaVenda.valida(consultarVendaDTO))
+            return ResponseEntity.status(HttpStatus.PRECONDITION_FAILED).body(new PaginacaoDTO<>("Dados de Entrada não são válidos."));
+
         ConsultaVendaMapper consultaVendaMapper = new ConsultaVendaMapper();
         ConsultaVendaCommand consultaVendaCommand = consultaVendaMapper.toCommand(consultarVendaDTO);
         Paginacao<Venda> vendas = vendaUseCase.consultarVendas(consultaVendaCommand);
-        PaginacaoDTO<ConsultarVendaResponseDTO> response = consultaVendaMapper.toDTO(vendas);
-        return response;
+        return  consultaVendaMapper.toDTO(vendas);
     }
 
 

@@ -1,4 +1,4 @@
-package br.com.beblue.bluerecords.entrypoint.venda.dto;
+package br.com.beblue.bluerecords.entrypoint.venda.dto.registravenda;
 
 public class RegistrarVendaItemRequestDTO {
     public RegistrarVendaItemRequestDTO() {

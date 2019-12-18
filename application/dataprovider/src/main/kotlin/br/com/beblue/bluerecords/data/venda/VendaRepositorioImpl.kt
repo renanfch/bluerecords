@@ -24,14 +24,15 @@ open class VendaRepositorioImpl(private val jdbcTemplate: JdbcTemplate) : VendaR
 
     private val SELECT_VENDA = " SELECT venda_tbl.id_venda, venda_tbl.id_cliente, venda_tbl.data_venda  " +
             " FROM venda_tbl " +
-            " WHERE venda_tbl.id_disco = ?; "
+            " WHERE venda_tbl.id_venda = ?; "
 
     private val SELECT_VENDAS_POR_DATA = " SELECT venda_tbl.id_venda, venda_tbl.id_cliente, venda_tbl.data_venda " +
             " FROM venda_tbl " +
             " WHERE venda_tbl.data_venda BETWEEN ? AND ? " +
             " LIMIT ? OFFSET ?; "
 
-    private val SELECT_VENDA_ITEM = " SELECT id_venda_itens, id_discos, valor, cash_back " +
+    private val SELECT_VENDA_ITEM = " SELECT id_venda_itens,id_venda, id_discos, valor, cash_back " +
+            " FROM venda_itens_tbl " +
             " WHERE venda_itens_tbl.id_venda_itens = ?; "
 
     private val SELECT_TOTAL_VENDAS_POR_DATA = " SELECT count(1) as row_count FROM venda_tbl where " +
@@ -105,25 +106,31 @@ open class VendaRepositorioImpl(private val jdbcTemplate: JdbcTemplate) : VendaR
         return total ?: 0
     }
 
-    override fun consulta(id: Int?): Venda {
+    override fun consulta(id: Int?): Venda? {
         val vendas = jdbcTemplate.query(
             SELECT_VENDA,
             arrayOf(id),
             VendaRowMapper()
         )
+        if(vendas.size<=0)
+            return null
+
         val venda = vendas[0]
         val vendaItem = consultaVendaItem(venda.id)
         venda.adicionarItemVendido(vendaItem)
         return venda
     }
 
-    private fun consultaVendaItem(idVenda: Int): VendaItem {
+    private fun consultaVendaItem(idVenda: Int): VendaItem? {
         val vendaItem = jdbcTemplate.query(
             SELECT_VENDA_ITEM,
             arrayOf(idVenda),
             VendaItemRowMapper()
         )
-        return vendaItem[0]
+        return if (vendaItem.size > 0)
+            vendaItem[0]
+        else
+            null
     }
 
 }

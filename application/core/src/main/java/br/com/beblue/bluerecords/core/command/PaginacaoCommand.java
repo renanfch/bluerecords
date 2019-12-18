@@ -22,7 +22,10 @@ public class PaginacaoCommand {
     }
     public Integer getOffset()
     {
-        return tamanho * pagina;
+        if(pagina == 1 || pagina == 0)
+            return 0;
+
+        return tamanho * (pagina - 1);
     }
 
     public void setTamanho(Integer tamanho) {

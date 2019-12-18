@@ -21,7 +21,7 @@ class DiscoRepositorioImpl(private val jdbcTemplate: JdbcTemplate) : DiscoReposi
     private val SELECT_DISCO_POR_ID = " SELECT id_disco, id_genero, nome, valor FROM disco_tbl WHERE id_genero = ?; "
     private val SELECT_DISCO_POR_GENERO =
         " SELECT id_disco, id_genero, nome, valor FROM disco_tbl WHERE id_genero = ? " +
-                " LIMIT ? OFFSET ?; "
+                " ORDER BY nome ASC LIMIT ? OFFSET ?; "
     private val SELECT_TOTAL_DISCO = " SELECT count(1) as row_count FROM disco_tbl where id_genero = ?; "
 
     override fun cadastrar(command: CadastraDiscoCommand): Disco {
@@ -38,8 +38,7 @@ class DiscoRepositorioImpl(private val jdbcTemplate: JdbcTemplate) : DiscoReposi
         return Disco(keyHolderDisco.key?.toInt() ?: 0, command.idGenero, command.nome, command.valor)
     }
 
-    override fun consultarDiscos(command: ConsultaDiscoCommand): Paginacao<Disco>
-    {
+    override fun consultarDiscos(command: ConsultaDiscoCommand): Paginacao<Disco> {
         val discos = jdbcTemplate.query(
             SELECT_DISCO_POR_GENERO,
             arrayOf(command.genero, command.paginacaoCommand.tamanho, command.paginacaoCommand.offset),
@@ -72,14 +71,15 @@ class DiscoRepositorioImpl(private val jdbcTemplate: JdbcTemplate) : DiscoReposi
         return discoExists.size > 0
     }
 
-    override fun consultar(id: Int?): Disco
-    {
+    override fun consultar(id: Int?): Disco? {
         val disco = jdbcTemplate.query(
             SELECT_DISCO_POR_ID,
             arrayOf(id),
             DiscoRowMapper()
         )
-
-        return disco[0]
+        return if (disco.size > 0)
+            disco[0]
+        else
+            null
     }
 }

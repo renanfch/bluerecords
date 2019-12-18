@@ -1,10 +1,10 @@
-package br.com.beblue.bluerecords.entrypoint.venda.mapper;
+package br.com.beblue.bluerecords.entrypoint.venda.dto.registravenda.mapper;
 
 import br.com.beblue.bluerecords.core.command.RegistraVendaCommand;
 import br.com.beblue.bluerecords.core.command.RegistrarVendaItensCommand;
 import br.com.beblue.bluerecords.core.entitidade.Venda;
-import br.com.beblue.bluerecords.entrypoint.venda.dto.RegistrarVendaRequestDTO;
-import br.com.beblue.bluerecords.entrypoint.venda.dto.RegistrarVendaResponseDTO;
+import br.com.beblue.bluerecords.entrypoint.venda.dto.registravenda.RegistrarVendaRequestDTO;
+import br.com.beblue.bluerecords.entrypoint.venda.dto.registravenda.RegistrarVendaResponseDTO;
 
 import java.util.ArrayList;
 import java.util.List;

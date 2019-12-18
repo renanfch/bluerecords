@@ -1,21 +1,19 @@
-package br.com.beblue.bluerecords.entrypoint.venda.dto;
+package br.com.beblue.bluerecords.entrypoint.venda.dto.consultavenda;
 
-
-import java.time.LocalDate;
 
 public class ConsultarVendaDTO {
-    public ConsultarVendaDTO(Integer pagina, Integer tamanho, LocalDate dataInicial, LocalDate dataFinal) {
+    public ConsultarVendaDTO(Integer pagina, Integer tamanho, String dataInicial, String dataFinal) {
         this.dataInicial = dataInicial;
         this.dataFinal = dataFinal;
         this.pagina = pagina;
         this.tamanho = tamanho;
     }
 
-    public LocalDate getDataInicial() {
+    public String getDataInicial() {
         return dataInicial;
     }
 
-    public LocalDate getDataFinal() {
+    public String getDataFinal() {
         return dataFinal;
     }
 
@@ -29,7 +27,7 @@ public class ConsultarVendaDTO {
 
     private Integer pagina;
     private Integer tamanho;
-    private LocalDate dataInicial;
-    private LocalDate dataFinal;
+    private String dataInicial;
+    private String dataFinal;
 
 }
