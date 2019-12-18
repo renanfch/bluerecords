@@ -7,9 +7,9 @@ import br.com.beblue.bluerecords.core.entitidade.VendaItem;
 import br.com.beblue.bluerecords.core.entitidade.paginacao.Paginacao;
 import br.com.beblue.bluerecords.entrypoint.paginacao.PaginacaoDTO;
 import br.com.beblue.bluerecords.entrypoint.util.DataUtil;
-import br.com.beblue.bluerecords.entrypoint.venda.dto.consultavenda.ConsultarVendaDTO;
-import br.com.beblue.bluerecords.entrypoint.venda.dto.consultavenda.ConsultarVendaItemResponseDTO;
-import br.com.beblue.bluerecords.entrypoint.venda.dto.consultavenda.ConsultarVendaResponseDTO;
+import br.com.beblue.bluerecords.entrypoint.venda.dto.consultavenda.dto.ConsultarVendaDTO;
+import br.com.beblue.bluerecords.entrypoint.venda.dto.consultavenda.dto.ConsultarVendaItemResponseDTO;
+import br.com.beblue.bluerecords.entrypoint.venda.dto.consultavenda.dto.ConsultarVendaResponseDTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
@@ -26,8 +26,7 @@ public class ConsultaVendaMapper {
         return new ConsultaVendaCommand(dataInicial, dataFinal, paginacaoCommand);
     }
 
-    public ResponseEntity<PaginacaoDTO<ConsultarVendaResponseDTO>> toDTO(Paginacao<Venda> vendas)
-    {
+    public ResponseEntity<PaginacaoDTO<ConsultarVendaResponseDTO>> toDTO(Paginacao<Venda> vendas) {
         List<ConsultarVendaResponseDTO> vendasResponse = new java.util.ArrayList<>(Collections.emptyList());
         vendas.getObjetos().forEach(it -> vendasResponse.add(new ConsultarVendaResponseDTO(it.getId(), it.getIdCliente(),
                 it.getDataVenda(), converteItemToResponse(it.getVendaItens())

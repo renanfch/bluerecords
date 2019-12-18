@@ -1,14 +1,19 @@
-package br.com.beblue.bluerecords.entrypoint.venda.dto.consultavenda;
+package br.com.beblue.bluerecords.entrypoint.venda.dto.consultavenda.dto;
 
 import br.com.beblue.bluerecords.entrypoint.paginacao.PaginavelDTO;
 
 import java.time.LocalDate;
 import java.util.List;
 
-public class ConsultarVendaResponseDTO implements PaginavelDTO
-{
-    public ConsultarVendaResponseDTO(String mensagem)
-    {
+public class ConsultarVendaResponseDTO implements PaginavelDTO {
+
+    private Integer id;
+    private Integer idCliente;
+    private LocalDate dataVenda;
+    private List<ConsultarVendaItemResponseDTO> itens;
+    private String mensagem;
+
+    public ConsultarVendaResponseDTO(String mensagem) {
         this.mensagem = mensagem;
     }
 
@@ -17,6 +22,7 @@ public class ConsultarVendaResponseDTO implements PaginavelDTO
         this.idCliente = idCliente;
         this.dataVenda = dataVenda;
         this.itens = itens;
+        this.mensagem = "Sucesso";
     }
 
     public Integer getId() {
@@ -35,14 +41,8 @@ public class ConsultarVendaResponseDTO implements PaginavelDTO
         return itens;
     }
 
-    private Integer id;
-    private Integer idCliente;
-    private LocalDate dataVenda;
-    private List<ConsultarVendaItemResponseDTO> itens;
-
     public String getMensagem() {
         return mensagem;
     }
 
-    private String mensagem;
 }

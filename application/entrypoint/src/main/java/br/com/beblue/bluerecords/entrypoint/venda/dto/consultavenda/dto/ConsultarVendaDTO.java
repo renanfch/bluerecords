@@ -1,7 +1,13 @@
-package br.com.beblue.bluerecords.entrypoint.venda.dto.consultavenda;
+package br.com.beblue.bluerecords.entrypoint.venda.dto.consultavenda.dto;
 
 
 public class ConsultarVendaDTO {
+
+    private Integer pagina;
+    private Integer tamanho;
+    private String dataInicial;
+    private String dataFinal;
+
     public ConsultarVendaDTO(Integer pagina, Integer tamanho, String dataInicial, String dataFinal) {
         this.dataInicial = dataInicial;
         this.dataFinal = dataFinal;
@@ -24,10 +30,5 @@ public class ConsultarVendaDTO {
     public Integer getTamanho() {
         return tamanho;
     }
-
-    private Integer pagina;
-    private Integer tamanho;
-    private String dataInicial;
-    private String dataFinal;
 
 }

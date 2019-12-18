@@ -12,6 +12,7 @@ import br.com.beblue.bluerecords.entrypoint.disco.mapper.DiscoResponseMapper;
 import io.swagger.annotations.Api;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 
@@ -28,7 +29,7 @@ public class DiscoRestController {
     private DiscoUseCase discoUseCase;
 
     @GetMapping("disco/{id}")
-    public ResponseEntity<DiscoResponseDTO> consultarDisco(Integer id) {
+    public ResponseEntity<DiscoResponseDTO> consultarDisco(@PathVariable Integer id) {
         DiscoResponseMapper discoResponseMapper = new DiscoResponseMapper();
         Disco disco = discoUseCase.consultar(id);
         return discoResponseMapper.toResponse(disco);

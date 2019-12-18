@@ -1,18 +1,13 @@
 package br.com.beblue.bluerecords.entrypoint.venda.dto.consultavenda.validacao;
 
 import br.com.beblue.bluerecords.entrypoint.util.DataUtil;
-import br.com.beblue.bluerecords.entrypoint.venda.dto.consultavenda.ConsultarVendaDTO;
+import br.com.beblue.bluerecords.entrypoint.venda.dto.consultavenda.dto.ConsultarVendaDTO;
 
-public class ValidaConsultaVenda
-{
-    public static boolean valida(ConsultarVendaDTO consultarVendaDTO)
-    {
-        if(!DataUtil.validarStringParaData(consultarVendaDTO.getDataInicial()))
+public class ValidaConsultaVenda {
+    public static boolean valida(ConsultarVendaDTO consultarVendaDTO) {
+        if (!DataUtil.validarStringParaData(consultarVendaDTO.getDataInicial()))
             return false;
 
-        if(!DataUtil.validarStringParaData(consultarVendaDTO.getDataFinal()))
-            return false;
-
-        return true;
+        return DataUtil.validarStringParaData(consultarVendaDTO.getDataFinal());
     }
 }

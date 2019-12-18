@@ -1,6 +1,10 @@
-package br.com.beblue.bluerecords.entrypoint.venda.dto.registravenda;
+package br.com.beblue.bluerecords.entrypoint.venda.dto.registravenda.dto;
 
 public class RegistrarVendaItemRequestDTO {
+
+    private Integer idDisco;
+    private Integer quantidade;
+
     public RegistrarVendaItemRequestDTO() {
     }
 
@@ -12,11 +16,7 @@ public class RegistrarVendaItemRequestDTO {
     public Integer getIdDisco() {
         return idDisco;
     }
-
     public Integer getQuantidade() {
         return quantidade;
     }
-
-    private Integer idDisco;
-    private Integer quantidade;
 }

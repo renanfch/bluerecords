@@ -18,9 +18,8 @@ public class DiscoResponseMapper {
         return ResponseEntity.ok(new PaginacaoDTO<>(discos.getTamanho(), discos.getTotal(), discos.getPagina(), discosResponse));
     }
 
-    public ResponseEntity<DiscoResponseDTO> toResponse(Disco disco)
-    {
-        if(disco == null){
+    public ResponseEntity<DiscoResponseDTO> toResponse(Disco disco) {
+        if (disco == null) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new DiscoResponseDTO("Disco não encontrado"));
         }
         return ResponseEntity.ok(new DiscoResponseDTO(disco.getNome(), disco.getValor()));

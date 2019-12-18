@@ -1,12 +1,14 @@
-package br.com.beblue.bluerecords.entrypoint.venda.dto.registravenda;
+package br.com.beblue.bluerecords.entrypoint.venda.dto.registravenda.dto;
 
-import java.time.LocalDate;
 import java.util.List;
 
 public class RegistrarVendaRequestDTO {
 
-    public RegistrarVendaRequestDTO(){
+    private String date;
+    private Integer idCliente;
+    private List<RegistrarVendaItemRequestDTO> registrarVendaItemRequestDTO;
 
+    public RegistrarVendaRequestDTO() {
     }
 
     public RegistrarVendaRequestDTO(String date, Integer idCliente, List<RegistrarVendaItemRequestDTO> registrarVendaItemRequestDTO) {
@@ -27,8 +29,4 @@ public class RegistrarVendaRequestDTO {
     public List<RegistrarVendaItemRequestDTO> getRegistrarVendaItemRequestDTO() {
         return registrarVendaItemRequestDTO;
     }
-
-    private String date;
-    private Integer idCliente;
-    private List<RegistrarVendaItemRequestDTO> registrarVendaItemRequestDTO;
 }

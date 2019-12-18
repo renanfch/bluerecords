@@ -51,13 +51,134 @@ também temos um ganho ao lidarmos com várias pessoas alterando o mesmo código
 
 **Buscar discos** GET http://localhost:9000/disco ?generoId={id}&pagina={pagina}&tamanho={tamanho}
 
-**Buscar disco** GET http://localhost:9000/disco/{id} 
+Consulta: 
 
-**Registrar venda** POST http://localhost:9000/venda
+http://localhost:9000/disco?generoId=1&pagina=1&tamanho=50
 
-**Buscar vendas** GET http://localhost:9000/venda ?dataInicial={dataI}&dataFinal={dataF}&pagina={pagina}&tamanho={tamanho}
-  
+Retorno: 
+
+```json
+{
+  "tamanho": 1,
+  "total": 50,
+  "pagina": 1,
+  "objetos": [
+    {
+      "nome": "A Night At The Opera (Deluxe Remastered Version)",
+      "valor": 54.3,
+      "mensagem": "Sucesso"
+    }
+  ],
+  "mensagem": "Sucesso"
+}
+```
+      
+
+**Buscar disco** 
+
+GET http://localhost:9000/disco/{id}
+
+*Exemplo* 
+
+Consulta: 
+
+http://localhost:9000/disco/1
+
+Retorno: 
+
+```json
+{
+   "nome": "McCartney II",
+   "valor": 42.44,
+   "mensagem": "Sucesso"
+ }
+```
+
+**Registrar venda** 
+
+POST http://localhost:9000/venda
+
+Envio: 
+
+```json
+{
+           "date": "18/12/2019",
+           "idCliente": 1,
+           "registrarVendaItemRequestDTO": [
+             {
+               "idDisco": 1,
+               "quantidade": 1
+             }
+           ]
+         }
+```
+         
+Retorno: 
+
+```json
+          {
+            "id": 227,
+            "mensagem": "Venda registrada com sucesso",
+            "totalCashBack": 6.37
+          }
+```
+          
+**Buscar vendas** 
+
+GET http://localhost:9000/venda?dataInicial={dataI}&dataFinal={dataF}&pagina={pagina}&tamanho={tamanho}
+
+Consulta: 
+
+http://localhost:9000/venda?dataFinal=01%2F01%2F2020&dataInicial=01%2F01%2F2019&pagina=1&tamanho=2
+
+```json
+{
+  "tamanho": 2,
+  "total": 10,
+  "pagina": 1,
+  "objetos": [
+    {
+      "id": 1,
+      "idCliente": 1,
+      "dataVenda": "2019-01-01",
+      "itens": [
+        {
+          "idVendaItens": 1,
+          "idVenda": 1,
+          "idDisco": 1,
+          "valor": 10,
+          "cashBack": 2
+        }
+      ],
+      "mensagem": "Sucesso"
+    },
+    {
+      "id": 33,
+      "idCliente": 1,
+      "dataVenda": "2019-01-01",
+      "itens": [
+        {
+          "idVendaItens": 33,
+          "idVenda": 33,
+          "idDisco": 1,
+          "valor": 42.44,
+          "cashBack": 21
+        }
+      ],
+      "mensagem": "Sucesso"
+    }
+  ],
+  "mensagem": "Sucesso"
+}
+```
+
+
+Retorno: 
+
+
 **Buscar venda** GET http://localhost:9000/venda/{id}
+
+
 
 ## Documentação dinâmica
 
