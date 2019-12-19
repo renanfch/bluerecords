@@ -46,11 +46,10 @@ dependencies {
 
     implementation libs.database
     implementation libs.spring_config
+    implementation libs.amqp
     implementation libs.cacheable
 
-    implementation libs.log
     implementation libs.api_spotify
-
 
     testImplementation libs.spring_test
     testImplementation libs.unit_test

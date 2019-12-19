@@ -4,6 +4,6 @@ dependencies {
     implementation project(":application:core")
 
     implementation libs.rest
-    implementation libs.log
+    implementation libs.amqp
     testImplementation libs.unit_test
 }

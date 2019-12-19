@@ -3,7 +3,6 @@ description = "Camada que busca os dados em repositórios externos(database, api
 dependencies {
     implementation project(":application:core")
 
-    implementation libs.log
     implementation libs.database
     implementation libs.api_spotify
     testImplementation libs.unit_test
