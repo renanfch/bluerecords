@@ -77,6 +77,7 @@ Retorno:
     {
       "nome": "A Night At The Opera (Deluxe Remastered Version)",
       "valor": 54.3,
+      "genero":"ROCK",
       "mensagem": "Sucesso"
     }
   ],
@@ -99,6 +100,7 @@ Retorno:
 {
    "nome": "McCartney II",
    "valor": 42.44,
+   "genero":"ROCK",
    "mensagem": "Sucesso"
  }
 ```
@@ -267,3 +269,5 @@ $docker-compose up
 ## Observações
 Tentei utilizar o mínimo de frameworks e bibliotecas possíveis, poderia ser utilizado JPA para persistência e paginação.
 O desenvolvimento foi iniciado com Kotlin, mas por se tratar de uma vaga para JAVA preferi fazer o core e os entrypoint em JAVA.
+O RabbitMQ foi adicionado apenas como exemplo de como funcionaria o envio de uma notificação.
+
