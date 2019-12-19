@@ -10,8 +10,8 @@ class VendaRowMapper : RowMapper<Venda> {
         return Venda(
             rs.getInt("id_venda"),
             rs.getInt("id_cliente"),
-            rs.getDate("data_venda").toLocalDate()
+            rs.getDate("data_venda").toLocalDate(),
+            rs.getDouble("total_cash_back")
         )
     }
-
 }

@@ -11,20 +11,21 @@ buildscript {
 
     repositories {
         mavenCentral()
+        jcenter()
     }
 
     dependencies {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-//        classpath "com.palantir:jacoco-coverage:$jacoco_palantir_version"
+        classpath "com.palantir:jacoco-coverage:$jacoco_palantir_version"
     }
 }
 
-//apply plugin: 'jacoco'
-//apply plugin: 'com.palantir.jacoco-full-report'
-//
-//jacoco {
-//    toolVersion = "0.8.3"
-//}
+apply plugin: 'jacoco'
+apply plugin: 'com.palantir.jacoco-full-report'
+
+jacoco {
+    toolVersion = "0.8.3"
+}
 
 allprojects {
     repositories {
@@ -36,7 +37,7 @@ allprojects {
 subprojects {
     ext {
         versions = [
-                junit         : "5.2.0",
+                junit         : "5.3.2",
                 assertj       : "3.11.1",
                 spring        : "2.1.7.RELEASE",
                 mysql         : "5.1.46",
@@ -44,8 +45,10 @@ subprojects {
                 flyway        : '5.2.4',
                 jackson_kotlin: '2.9.7',
                 swagger       : '2.9.2',
-                mockk         : '1.9',
+                mockk         : '3.2.4',
                 khttp         : '1.0.0',
+                spotify       : '4.2.0',
+                cache         : '2.8.0',
         ]
 
         libs = [
@@ -56,7 +59,7 @@ subprojects {
                         "org.junit.jupiter:junit-jupiter-api:${versions.junit}",
                         "org.junit.jupiter:junit-jupiter-params:${versions.junit}",
                         "org.junit.jupiter:junit-jupiter-engine:${versions.junit}",
-                        "io.mockk:mockk:${versions.mockk}",
+                        "org.mockito:mockito-core:${versions.mockk}",
                 ],
                 log          : [
                 ],
@@ -68,9 +71,9 @@ subprojects {
                 ],
                 cacheable    : [
                         "org.springframework.boot:spring-boot-starter-cache:${versions.spring}",
-                        "com.github.ben-manes.caffeine:caffeine:2.8.0",
-                        "com.github.ben-manes.caffeine:guava:2.8.0",
-                        "com.github.ben-manes.caffeine:jcache:2.8.0",
+                        "com.github.ben-manes.caffeine:caffeine:${versions.cache}",
+                        "com.github.ben-manes.caffeine:guava:${versions.cache}",
+                        "com.github.ben-manes.caffeine:jcache:${versions.cache}",
                 ],
                 rest         : [
                         "org.springframework.boot:spring-boot-starter-web:${versions.spring}",
@@ -82,10 +85,9 @@ subprojects {
                         "org.springframework.boot:spring-boot-starter-jdbc:${versions.spring}",
                         "com.h2database:h2:${versions.h2}",
                         "org.flywaydb:flyway-core:${versions.flyway}",
-                ]
-                ,
-                khttp     : [
-                        "khttp:khttp:${versions.khttp}"
+                ],
+                api_spotify : [
+                        "se.michaelthelin.spotify:spotify-web-api-java:${versions.spotify}"
                 ]
         ]
     }

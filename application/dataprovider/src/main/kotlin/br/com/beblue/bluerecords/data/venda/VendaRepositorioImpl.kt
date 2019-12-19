@@ -24,14 +24,16 @@ open class VendaRepositorioImpl(private val jdbcTemplate: JdbcTemplate) : VendaR
         " INSERT INTO venda_itens_tbl  ( id_venda, id_discos,valor, quantidade,cash_back )" +
                 " VALUES ( ?,?,?,?,? ); "
 
-    private val SELECT_VENDA = " SELECT venda_tbl.id_venda, venda_tbl.id_cliente, venda_tbl.data_venda  " +
-            " FROM venda_tbl " +
-            " WHERE venda_tbl.id_venda = ?; "
+    private val SELECT_VENDA =
+        " SELECT venda_tbl.id_venda, venda_tbl.id_cliente, venda_tbl.data_venda, total_cash_back  " +
+                " FROM venda_tbl " +
+                " WHERE venda_tbl.id_venda = ?; "
 
-    private val SELECT_VENDAS_POR_DATA = " SELECT venda_tbl.id_venda, venda_tbl.id_cliente, venda_tbl.data_venda " +
-            " FROM venda_tbl " +
-            " WHERE venda_tbl.data_venda BETWEEN ? AND ? ORDER BY venda_tbl.data_venda DESC " +
-            " LIMIT ? OFFSET ?; "
+    private val SELECT_VENDAS_POR_DATA =
+        " SELECT venda_tbl.id_venda, venda_tbl.id_cliente, venda_tbl.data_venda, total_cash_back " +
+                " FROM venda_tbl " +
+                " WHERE venda_tbl.data_venda BETWEEN ? AND ? ORDER BY venda_tbl.data_venda DESC " +
+                " LIMIT ? OFFSET ?; "
 
     private val SELECT_VENDA_ITEM = " SELECT id_venda_itens,id_venda, id_discos, valor, quantidade, cash_back " +
             " FROM venda_itens_tbl " +
@@ -50,10 +52,10 @@ open class VendaRepositorioImpl(private val jdbcTemplate: JdbcTemplate) : VendaR
             ps
         }, keyHolderVenda)
         val idVenda = keyHolderVenda.key?.toInt() ?: 0
-        val venda = Venda(idVenda, command.idCliente, command.date)
+        val venda = Venda(idVenda, command.idCliente, command.date, command.totalCashBack)
 
         command.registrarVendaItensCommand.forEach {
-            var vendaItem = cadastrarItens(idVenda, it)
+            val vendaItem = cadastrarItens(idVenda, it)
             venda.adicionarItemVendido(vendaItem)
         }
 

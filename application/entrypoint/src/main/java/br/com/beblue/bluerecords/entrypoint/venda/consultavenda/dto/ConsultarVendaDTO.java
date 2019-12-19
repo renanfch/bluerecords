@@ -3,8 +3,6 @@ package br.com.beblue.bluerecords.entrypoint.venda.consultavenda.dto;
 
 import br.com.beblue.bluerecords.entrypoint.util.DataUtil;
 
-import java.time.LocalDate;
-
 public class ConsultarVendaDTO {
 
     private Integer pagina;

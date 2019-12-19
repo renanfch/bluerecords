@@ -28,4 +28,5 @@ public class VendaUseCaseImpl implements VendaUseCase {
     public Venda consultarVendaPorId(Integer id) {
         return vendaRepositorio.consulta(id);
     }
+
 }

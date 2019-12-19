@@ -3,3 +3,7 @@ description = "Camada que contempla o as regras de negócio e as entidades."
 dependencies {
     testImplementation libs.unit_test
 }
+
+test {
+    useJUnitPlatform()
+}
