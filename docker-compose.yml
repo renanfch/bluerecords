@@ -11,8 +11,8 @@ services:
     networks:
       - bluerecords-network
     environment:
-      RABBITMQ_DEFAULT_USER: rabbitmq
-      RABBITMQ_DEFAULT_PASS: rabbitmq
+      RABBITMQ_DEFAULT_USER: rabbitmqUser
+      RABBITMQ_DEFAULT_PASS: rabbitmqPass
 
   blue-records:
     image: beblue/blue-records-api
