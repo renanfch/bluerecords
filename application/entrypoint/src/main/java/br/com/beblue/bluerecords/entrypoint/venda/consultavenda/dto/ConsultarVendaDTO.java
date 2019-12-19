@@ -13,8 +13,8 @@ public class ConsultarVendaDTO {
     private String dataFinal;
 
     public ConsultarVendaDTO(Integer pagina, Integer tamanho, String dataInicial, String dataFinal) {
-        this.dataInicial = dataInicial == null ? DataUtil.converteLocalDateParaString(LocalDate.now()) : dataInicial;
-        this.dataFinal = dataFinal == null ? DataUtil.converteLocalDateParaString(LocalDate.now()) : dataFinal;
+        this.dataInicial = dataInicial == null ? DataUtil.converteLocalDateParaString() : dataInicial;
+        this.dataFinal = dataFinal == null ? DataUtil.converteLocalDateParaString() : dataFinal;
         this.pagina = pagina == null ? 1 : pagina;
         this.tamanho = tamanho == null ? 50 : tamanho;
     }
