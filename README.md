@@ -217,6 +217,51 @@ do projeto, também nos dando liberdade para efetuar execuções.
 
 Link: [http://localhost:9000/swagger-ui.html]
 
+## Executando com Docker
+
+Os seguintes passos foram documentados para serem executados em uma plataforma
+ `Linux`, porém os comandos com o sistema `Windows` podem ser semelhantes, mas,
+ o funcionamento não é totalmente garantido.
+
+- Certifique-se que você tenha as seguintes ferramentas instaladas:
+
+  - [`Docker`](https://docs.docker.com/install/)
+  - [`Docker Compose`](https://docs.docker.com/compose/install/)
+  - [`Git`](https://git-scm.com/downloads)
+
+- Efetue o clone do projeto pelo `Git`:
+
+```shell
+$git clone https://github.com/renanfch/bluerecords.git
+```
+
+- Acesse a pasta do projeto para iniciarmos a compilação:
+
+```shell
+$cd ./bluerecords
+```
+
+- As instruções a seguir executará atravéz do [`Gradle Build Tools`](https://gradle.org)
+o `clean` do projeto, logo o `build` executará os testes unitários 
+para garantir a integridade do projeto e gerar o executável (`.jar`)
+
+```shell
+$./gradlew clean build
+```
+
+- Agora será realizado o `build` do [`Dockerfile`](./Dockerfile) gerando uma imagem
+no repositório local denominada de `beblue/blue-records-api`.
+
+```shell
+$docker build -t beblue/blue-records-api .
+```
+
+- Após ter gerado a imagem da API iremos executar o projeto utilizando o [`docker-compose`](./docker-compose.yml).
+
+```shell
+$docker-compose up
+```
+
 
 ## Observações
 Tentei utilizar o mínimo de frameworks e bibliotecas possíveis, poderia ser utilizado JPA para persistência e paginação.
