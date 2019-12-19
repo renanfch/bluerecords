@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 
 @Configuration
-open class DiscoEndPointConfiguration {
+open class DiscoEndPointConfiguracao {
 
     @Bean
     open fun carregaDiscoEndPoint(discoUseCase: DiscoUseCase): DiscoRestController {

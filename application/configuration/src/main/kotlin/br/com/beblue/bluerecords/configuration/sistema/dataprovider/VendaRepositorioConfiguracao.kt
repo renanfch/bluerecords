@@ -10,11 +10,11 @@ import org.springframework.context.annotation.Primary
 import org.springframework.jdbc.core.JdbcTemplate
 
 @Configuration
-open class VendaProviderConfiguration {
+open class VendaRepositorioConfiguracao {
 
     @Bean
     @Primary
-    open fun loadVendaRepositorio(@Qualifier(BEAN_BLUERECORDS_JDBC_TEMPLATE) jdbcTemplate: JdbcTemplate): VendaRepositorio {
+    open fun carregaVendaRepositorio(@Qualifier(BEAN_BLUERECORDS_JDBC_TEMPLATE) jdbcTemplate: JdbcTemplate): VendaRepositorio {
         return VendaRepositorioImpl(jdbcTemplate)
     }
 

@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration
 import org.springframework.jdbc.core.JdbcTemplate
 
 @Configuration
-open class GeneroProviderConfiguration {
+open class GeneroRepositorioConfiguracao {
 
     @Bean
     open fun carregaGeneroRepositorio(

@@ -11,10 +11,10 @@ import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 
 @Configuration
-open class VendaUseCaseConfiguration {
+open class VendaUseCaseConfiguracao {
 
     @Bean
-    open fun loadUseCase(vendaRepositorio: VendaRepositorio): VendaUseCase =
+    open fun carregaUseCase(vendaRepositorio: VendaRepositorio): VendaUseCase =
         VendaUseCaseImpl(vendaRepositorio)
 
     @Bean

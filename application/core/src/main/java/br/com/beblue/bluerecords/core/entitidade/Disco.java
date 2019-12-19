@@ -23,7 +23,6 @@ public class Disco implements Paginavel {
         this.idGenero = idGenero;
         this.nome = nome;
         this.valor = valor;
-        this.genero = genero;
     }
 
     public Integer getId() {

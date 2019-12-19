@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 
 @Configuration
-open class CashBackUseCaseConfiguration {
+open class CashBackUseCaseConfiguracao {
 
     @Bean
     open fun carregaCashBackUseCase(cashBackRepositorio: CashBackRepositorio): CashBackUseCase {

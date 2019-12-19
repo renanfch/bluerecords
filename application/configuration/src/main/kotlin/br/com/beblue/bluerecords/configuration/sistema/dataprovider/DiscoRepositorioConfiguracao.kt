@@ -9,10 +9,10 @@ import org.springframework.context.annotation.Configuration
 import org.springframework.jdbc.core.JdbcTemplate
 
 @Configuration
-open class DiscoProviderConfiguration {
+open class DiscoRepositorioConfiguracao {
 
     @Bean
-    open fun carregaDiscoProvider(
+    open fun carregaDiscoRepositorio(
         @Qualifier(BlueRecordsDatasourceConfiguration.BEAN_BLUERECORDS_JDBC_TEMPLATE) jdbcTemplate: JdbcTemplate): DiscoRepositorio
     {
         return DiscoRepositorioImpl(jdbcTemplate)

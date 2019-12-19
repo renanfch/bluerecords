@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration
 import org.springframework.jdbc.core.JdbcTemplate
 
 @Configuration
-open class CashBackProviderConfiguration {
+open class CashBackRepositorioConfiguracao {
 
     @Bean
     open fun carregaCashBackRepositorio(

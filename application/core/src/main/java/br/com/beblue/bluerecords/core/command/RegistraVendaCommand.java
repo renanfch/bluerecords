@@ -8,7 +8,6 @@ public class RegistraVendaCommand {
     private LocalDate date;
     private Integer idCliente;
     List<RegistrarVendaItensCommand> registrarVendaItensCommand;
-    private Double totalCashBack;
 
     public RegistraVendaCommand(LocalDate date, Integer idCliente, List<RegistrarVendaItensCommand> registrarVendaItensCommand) {
         this.date = date;

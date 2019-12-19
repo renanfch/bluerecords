@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 
 @Configuration
-open class DiscoUseCaseConfiguration {
+open class DiscoUseCaseConfiguracao {
 
     @Bean
     open fun carregaDiscoUseCase(discoRepositorio: DiscoRepositorio, discoSpotifyClient : DiscoSpotifyClient) : DiscoUseCase

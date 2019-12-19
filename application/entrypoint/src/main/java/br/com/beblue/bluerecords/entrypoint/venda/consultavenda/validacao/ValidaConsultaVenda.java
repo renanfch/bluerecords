@@ -4,6 +4,8 @@ import br.com.beblue.bluerecords.entrypoint.util.DataUtil;
 import br.com.beblue.bluerecords.entrypoint.venda.consultavenda.dto.ConsultarVendaDTO;
 
 public class ValidaConsultaVenda {
+    private ValidaConsultaVenda(){}
+
     public static boolean valida(ConsultarVendaDTO consultarVendaDTO) {
         if (!DataUtil.validarStringParaData(consultarVendaDTO.getDataInicial()))
             return false;

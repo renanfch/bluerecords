@@ -17,7 +17,7 @@ public class DataUtil {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/MM/yyyy");
         return LocalDate.parse(data, formatter);
     }
-    public static String converteLocalDateParaString(LocalDate data) {
+    public static String converteLocalDateParaString() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/MM/yyyy");
         return LocalDate.now().format(formatter);
     }

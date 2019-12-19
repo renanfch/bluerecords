@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 
 @Configuration
-open class PopulaBancoUseCaseConfiugration {
+open class PopulaBancoUseCaseConfiguracao {
 
     @Bean
     open fun carregaPopulaBancoUseCase(discoUseCase: DiscoUseCase, generoUseCase: GeneroUseCase): PopulaBancoUseCase {

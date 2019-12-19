@@ -7,10 +7,10 @@ import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 
 @Configuration
-open class VendaEndpointConfiguration {
+open class VendaEndpointConfiguracao {
 
     @Bean
-    open fun loadVendaEndpoint(useCase: VendaUseCase, useCaseCashBack: VendaComCashBackUseCash): VendaRestController {
+    open fun carregaVendaEndpoint(useCase: VendaUseCase, useCaseCashBack: VendaComCashBackUseCash): VendaRestController {
         return VendaRestController(useCase, useCaseCashBack)
     }
 
