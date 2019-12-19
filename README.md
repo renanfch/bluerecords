@@ -4,7 +4,7 @@
 </p>
 
 # Blue Records [![CircleCI](https://circleci.com/gh/renanfch/bluerecords.svg?style=svg)](https://circleci.com/gh/renanfch/bluerecords)
-API para compra e vendas de discos de vinil; 
+API para consulta e vendas de discos de vinil com cashback; 
 
 Stack utilizada:
 

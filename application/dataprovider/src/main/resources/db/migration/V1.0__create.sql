@@ -46,7 +46,7 @@ CREATE TABLE venda_itens_tbl
     id_discos      int,
     valor          decimal(12, 2),
     quantidade     int,
-    cash_back      int,
+    cash_back      decimal(12,2),
     PRIMARY KEY (id_venda_itens)
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8;

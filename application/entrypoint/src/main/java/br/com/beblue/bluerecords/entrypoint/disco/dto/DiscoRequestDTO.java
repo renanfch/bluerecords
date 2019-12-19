@@ -6,9 +6,9 @@ public class DiscoRequestDTO {
     private Integer tamanho;
 
     public DiscoRequestDTO(Integer generoId, Integer pagina, Integer tamanho) {
-        this.generoId = generoId;
-        this.pagina = pagina;
-        this.tamanho = tamanho;
+        this.generoId = generoId==null?1:generoId;
+        this.pagina = pagina==null?1:pagina;
+        this.tamanho = tamanho==null?50:tamanho;
     }
 
     public Integer getGeneroId() {

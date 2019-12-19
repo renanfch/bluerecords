@@ -13,6 +13,7 @@ import br.com.beblue.bluerecords.entrypoint.venda.registravenda.dto.RegistrarVen
 import br.com.beblue.bluerecords.entrypoint.venda.registravenda.dto.RegistrarVendaResponseDTO;
 import br.com.beblue.bluerecords.entrypoint.venda.consultavenda.mapper.ConsultaVendaMapper;
 import br.com.beblue.bluerecords.entrypoint.venda.registravenda.mapper.RegistrarVendaMapper;
+import br.com.beblue.bluerecords.entrypoint.venda.registravenda.validacao.ValidaRegistraVenda;
 import io.swagger.annotations.Api;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,7 +22,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @Api(
         value = "REST API para pesquisar e realizar vendas",
-        tags = {"ConsultaVendas"}
+        tags = {"API de consulta e venda de discos."}
 )
 public class VendaRestController {
     public VendaRestController(VendaUseCase vendaUseCase, VendaComCashBackUseCash vendaCaseBackUseCase) {
@@ -33,12 +34,9 @@ public class VendaRestController {
     private VendaUseCase vendaUseCase;
 
     @PostMapping("/venda")
-    public RegistrarVendaResponseDTO registrarVenda(@RequestBody RegistrarVendaRequestDTO request) {
-        RegistrarVendaResponseDTO response = verifyAndExecute(request);
-        return response;
-    }
-
-    private RegistrarVendaResponseDTO verifyAndExecute(RegistrarVendaRequestDTO request) {
+    public ResponseEntity<RegistrarVendaResponseDTO> registrarVenda(@RequestBody RegistrarVendaRequestDTO request) {
+        if (!ValidaRegistraVenda.valida(request))
+            return ResponseEntity.status(HttpStatus.PRECONDITION_FAILED).body(new RegistrarVendaResponseDTO("Dados de Entrada não são válidos."));
         return RegistrarVendaMapper.toResponseDTO(vendaCaseBackUseCase.registrarVenda(RegistrarVendaMapper.toCommand(request)));
     }
 

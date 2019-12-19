@@ -38,6 +38,9 @@ public class Venda implements Paginavel {
         return Collections.unmodifiableList(vendaItens);
     }
 
+    public void adicionarItensVendido(List<VendaItem> vendaItem) {
+        this.vendaItens.addAll(vendaItem);
+    }
     public void adicionarItemVendido(VendaItem vendaItem) {
         this.vendaItens.add(vendaItem);
     }

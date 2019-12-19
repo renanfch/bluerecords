@@ -35,7 +35,7 @@ open class VendaRepositorioImpl(private val jdbcTemplate: JdbcTemplate) : VendaR
 
     private val SELECT_VENDA_ITEM = " SELECT id_venda_itens,id_venda, id_discos, valor, quantidade, cash_back " +
             " FROM venda_itens_tbl " +
-            " WHERE venda_itens_tbl.id_venda_itens = ?; "
+            " WHERE venda_itens_tbl.id_venda = ?; "
 
     private val SELECT_TOTAL_VENDAS_POR_DATA = " SELECT count(1) as row_count FROM venda_tbl where " +
             "  venda_tbl.data_venda BETWEEN ? AND ? "
@@ -88,7 +88,7 @@ open class VendaRepositorioImpl(private val jdbcTemplate: JdbcTemplate) : VendaR
 
         vendas.forEach {
             val vendaItem = consultaVendaItem(it.id)
-            it.adicionarItemVendido(vendaItem)
+            it.adicionarItensVendido(vendaItem)
         }
 
         val total = consultaTotalVendas(command)
@@ -120,20 +120,17 @@ open class VendaRepositorioImpl(private val jdbcTemplate: JdbcTemplate) : VendaR
 
         val venda = vendas[0]
         val vendaItem = consultaVendaItem(venda.id)
-        venda.adicionarItemVendido(vendaItem)
+        venda.adicionarItensVendido(vendaItem)
         return venda
     }
 
-    private fun consultaVendaItem(idVenda: Int): VendaItem? {
+    private fun consultaVendaItem(idVenda: Int): List<VendaItem>? {
         val vendaItem = jdbcTemplate.query(
             SELECT_VENDA_ITEM,
             arrayOf(idVenda),
             VendaItemRowMapper()
         )
-        return if (vendaItem.size > 0)
-            vendaItem[0]
-        else
-            null
+        return vendaItem
     }
 
 }

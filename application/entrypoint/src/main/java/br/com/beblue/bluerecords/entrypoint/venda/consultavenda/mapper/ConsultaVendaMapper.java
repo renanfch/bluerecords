@@ -20,7 +20,8 @@ import java.util.List;
 
 public class ConsultaVendaMapper {
 
-    private ConsultaVendaMapper(){}
+    private ConsultaVendaMapper() {
+    }
 
     public static ConsultaVendaCommand toCommand(ConsultarVendaDTO consultarVendaDTO) {
         PaginacaoCommand paginacaoCommand = new PaginacaoCommand(consultarVendaDTO.getPagina(), consultarVendaDTO.getTamanho());
@@ -30,6 +31,8 @@ public class ConsultaVendaMapper {
     }
 
     public static ResponseEntity<PaginacaoDTO<ConsultarVendaResponseDTO>> toDTO(Paginacao<Venda> vendas) {
+        if (vendas.getObjetos().isEmpty())
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new PaginacaoDTO<>("Não encontrou nenhuma venda com esses filtros."));
         List<ConsultarVendaResponseDTO> vendasResponse = new java.util.ArrayList<>(Collections.emptyList());
         vendas.getObjetos().forEach(it -> vendasResponse.add(new ConsultarVendaResponseDTO(it.getId(), it.getIdCliente(),
                 it.getDataVenda(), converteItemToResponse(it.getVendaItens())

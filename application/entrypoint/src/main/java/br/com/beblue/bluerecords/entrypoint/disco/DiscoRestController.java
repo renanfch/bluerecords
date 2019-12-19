@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @Api(
         value = "REST API para pesquisar os discos",
-        tags = {"ConsultaDiscos"}
+        tags = {"API de consulta e venda de discos."}
 )
 public class DiscoRestController {
     public DiscoRestController(DiscoUseCase discoUseCase) {

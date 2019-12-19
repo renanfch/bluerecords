@@ -6,10 +6,12 @@ public class DiscoResponseDTO implements PaginavelDTO {
     private String nome;
     private Double valor;
     private String mensagem;
+    private String genero;
 
-    public DiscoResponseDTO(String nome, Double valor) {
+    public DiscoResponseDTO(String nome, Double valor, String genero) {
         this.nome = nome;
         this.valor = valor;
+        this.genero = genero;
         this.mensagem = "Sucesso";
     }
 
@@ -23,6 +25,10 @@ public class DiscoResponseDTO implements PaginavelDTO {
 
     public String getNome() {
         return nome;
+    }
+
+    public String getGenero() {
+        return genero;
     }
 
     public Double getValor() {

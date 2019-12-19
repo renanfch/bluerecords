@@ -8,12 +8,22 @@ public class Disco implements Paginavel {
     private Integer idGenero;
     private String nome;
     private Double valor;
+    private String genero;
+
+    public Disco(Integer id, Integer idGenero, String nome, Double valor, String genero) {
+        this.id = id;
+        this.idGenero = idGenero;
+        this.nome = nome;
+        this.valor = valor;
+        this.genero = genero;
+    }
 
     public Disco(Integer id, Integer idGenero, String nome, Double valor) {
         this.id = id;
         this.idGenero = idGenero;
         this.nome = nome;
         this.valor = valor;
+        this.genero = genero;
     }
 
     public Integer getId() {
@@ -26,6 +36,10 @@ public class Disco implements Paginavel {
 
     public String getNome() {
         return nome;
+    }
+
+    public String getGenero() {
+        return genero;
     }
 
     public Double getValor() {

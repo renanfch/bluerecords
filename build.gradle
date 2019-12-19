@@ -1,6 +1,6 @@
 group 'br.com.beblue.bluerecords'
 version '0.0.1'
-description = "API para compra e vendas de discos de vinil"
+description = "API para consulta e vendas de discos de vinil"
 
 buildscript {
     ext.artifactId = 'bluerecords'

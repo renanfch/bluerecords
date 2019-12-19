@@ -6,11 +6,13 @@ import java.sql.ResultSet
 
 class DiscoRowMapper : RowMapper<Disco> {
     override fun mapRow(rs: ResultSet, rowNum: Int): Disco? {
-        val disco = Disco( rs.getInt("id_disco"),
+        val disco = Disco(
+            rs.getInt("id_disco"),
             rs.getInt("id_genero"),
             rs.getString("nome"),
-            rs.getDouble("valor"))
-
+            rs.getDouble("valor"),
+            rs.getString("descricao")
+        )
         return disco
     }
 }

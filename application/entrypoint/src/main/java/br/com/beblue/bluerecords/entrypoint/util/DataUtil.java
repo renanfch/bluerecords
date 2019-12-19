@@ -16,6 +16,9 @@ public class DataUtil {
     public static LocalDate converteParaLocalDate(String data) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/MM/yyyy");
         return LocalDate.parse(data, formatter);
-
+    }
+    public static String converteLocalDateParaString(LocalDate data) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/MM/yyyy");
+        return LocalDate.now().format(formatter);
     }
 }

@@ -16,11 +16,14 @@ class DiscoRepositorioImpl(private val jdbcTemplate: JdbcTemplate) : DiscoReposi
     private val INSERT_DISCO = " INSERT INTO disco_tbl  ( id_genero, nome, valor )" +
             " VALUES ( ?,?,? ); "
 
-    private val SELECT_DISCO = " SELECT id_disco, id_genero, nome, valor FROM disco_tbl; "
-    private val SELECT_DISCO_POR_ID = " SELECT id_disco, id_genero, nome, valor FROM disco_tbl WHERE id_genero = ?; "
+    private val SELECT_DISCO = " SELECT id_disco, id_genero, nome, valor, '' as descricao FROM disco_tbl; "
+    private val SELECT_DISCO_POR_ID = " SELECT disco_tbl.id_disco, disco_tbl.id_genero, disco_tbl.nome, " +
+            " disco_tbl.valor, genero_tbl.descricao FROM disco_tbl " +
+            " INNER JOIN genero_tbl ON genero_tbl.id_genero = disco_tbl.id_genero WHERE disco_tbl.id_genero = ?; "
     private val SELECT_DISCO_POR_GENERO =
-        " SELECT id_disco, id_genero, nome, valor FROM disco_tbl WHERE id_genero = ? " +
-                " ORDER BY nome ASC LIMIT ? OFFSET ?; "
+        " SELECT disco_tbl.id_disco, disco_tbl.id_genero, nome, valor, genero_tbl.descricao FROM disco_tbl  " +
+                " INNER JOIN genero_tbl ON genero_tbl.id_genero = disco_tbl.id_genero " +
+                " WHERE disco_tbl.id_genero = ? ORDER BY nome ASC LIMIT ? OFFSET ?; "
     private val SELECT_TOTAL_DISCO = " SELECT count(1) as row_count FROM disco_tbl where id_genero = ?; "
 
     override fun cadastrar(command: CadastraDiscoCommand): Disco {

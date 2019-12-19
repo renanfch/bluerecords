@@ -12,6 +12,10 @@ public class RegistrarVendaResponseDTO {
         this.totalCashBack = totalCashBack;
     }
 
+    public RegistrarVendaResponseDTO(String mensagem) {
+        this.mensagem = mensagem;
+    }
+
     public Integer getId() {
         return id;
     }

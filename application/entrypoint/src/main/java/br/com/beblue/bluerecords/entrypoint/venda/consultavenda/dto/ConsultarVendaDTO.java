@@ -1,6 +1,10 @@
 package br.com.beblue.bluerecords.entrypoint.venda.consultavenda.dto;
 
 
+import br.com.beblue.bluerecords.entrypoint.util.DataUtil;
+
+import java.time.LocalDate;
+
 public class ConsultarVendaDTO {
 
     private Integer pagina;
@@ -9,10 +13,10 @@ public class ConsultarVendaDTO {
     private String dataFinal;
 
     public ConsultarVendaDTO(Integer pagina, Integer tamanho, String dataInicial, String dataFinal) {
-        this.dataInicial = dataInicial;
-        this.dataFinal = dataFinal;
-        this.pagina = pagina;
-        this.tamanho = tamanho;
+        this.dataInicial = dataInicial == null ? DataUtil.converteLocalDateParaString(LocalDate.now()) : dataInicial;
+        this.dataFinal = dataFinal == null ? DataUtil.converteLocalDateParaString(LocalDate.now()) : dataFinal;
+        this.pagina = pagina == null ? 1 : pagina;
+        this.tamanho = tamanho == null ? 50 : tamanho;
     }
 
     public String getDataInicial() {
