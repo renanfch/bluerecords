@@ -61,13 +61,12 @@ subprojects {
                         "org.junit.jupiter:junit-jupiter-engine:${versions.junit}",
                         "org.mockito:mockito-core:${versions.mockk}",
                 ],
-                log          : [
-                ],
                 spring_config: [
                         "org.springframework.boot:spring-boot-starter-web:${versions.spring}",
                         "com.fasterxml.jackson.module:jackson-module-kotlin:${versions.jackson_kotlin}",
                         "org.springframework.boot:spring-boot-configuration-processor:${versions.spring}",
                         "io.springfox:springfox-swagger2:${versions.swagger}",
+                        "org.springframework.boot:spring-boot-starter-amqp:${versions.spring}"
                 ],
                 cacheable    : [
                         "org.springframework.boot:spring-boot-starter-cache:${versions.spring}",
@@ -88,7 +87,7 @@ subprojects {
                 ],
                 api_spotify : [
                         "se.michaelthelin.spotify:spotify-web-api-java:${versions.spotify}"
-                ]
+                ],
         ]
     }
 }
