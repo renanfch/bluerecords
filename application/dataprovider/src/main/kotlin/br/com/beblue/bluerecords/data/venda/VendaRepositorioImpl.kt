@@ -30,7 +30,7 @@ open class VendaRepositorioImpl(private val jdbcTemplate: JdbcTemplate) : VendaR
 
     private val SELECT_VENDAS_POR_DATA = " SELECT venda_tbl.id_venda, venda_tbl.id_cliente, venda_tbl.data_venda " +
             " FROM venda_tbl " +
-            " WHERE venda_tbl.data_venda BETWEEN ? AND ? " +
+            " WHERE venda_tbl.data_venda BETWEEN ? AND ? ORDER BY venda_tbl.data_venda " +
             " LIMIT ? OFFSET ?; "
 
     private val SELECT_VENDA_ITEM = " SELECT id_venda_itens,id_venda, id_discos, valor, quantidade, cash_back " +
