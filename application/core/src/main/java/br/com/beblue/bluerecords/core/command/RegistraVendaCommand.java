@@ -8,6 +8,7 @@ public class RegistraVendaCommand {
     private LocalDate date;
     private Integer idCliente;
     List<RegistrarVendaItensCommand> registrarVendaItensCommand;
+    private Double totalCashBack;
 
     public RegistraVendaCommand(LocalDate date, Integer idCliente, List<RegistrarVendaItensCommand> registrarVendaItensCommand) {
         this.date = date;
@@ -23,6 +24,11 @@ public class RegistraVendaCommand {
     }
     public LocalDate getDate() {
         return date;
+    }
+
+    public Double getTotalCashBack()
+    {
+        return registrarVendaItensCommand.stream().mapToDouble(RegistrarVendaItensCommand::getCashBack).sum();
     }
 
 

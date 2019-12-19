@@ -19,7 +19,7 @@ class DiscoRepositorioImpl(private val jdbcTemplate: JdbcTemplate) : DiscoReposi
     private val SELECT_DISCO = " SELECT id_disco, id_genero, nome, valor, '' as descricao FROM disco_tbl; "
     private val SELECT_DISCO_POR_ID = " SELECT disco_tbl.id_disco, disco_tbl.id_genero, disco_tbl.nome, " +
             " disco_tbl.valor, genero_tbl.descricao FROM disco_tbl " +
-            " INNER JOIN genero_tbl ON genero_tbl.id_genero = disco_tbl.id_genero WHERE disco_tbl.id_genero = ?; "
+            " INNER JOIN genero_tbl ON genero_tbl.id_genero = disco_tbl.id_genero WHERE disco_tbl.id_disco = ?; "
     private val SELECT_DISCO_POR_GENERO =
         " SELECT disco_tbl.id_disco, disco_tbl.id_genero, nome, valor, genero_tbl.descricao FROM disco_tbl  " +
                 " INNER JOIN genero_tbl ON genero_tbl.id_genero = disco_tbl.id_genero " +

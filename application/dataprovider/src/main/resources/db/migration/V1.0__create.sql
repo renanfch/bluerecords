@@ -35,6 +35,7 @@ CREATE TABLE venda_tbl
     id_venda   INT NOT NULL AUTO_INCREMENT,
     id_cliente int,
     data_venda date,
+    total_cash_back double,
     PRIMARY KEY (id_venda)
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8;

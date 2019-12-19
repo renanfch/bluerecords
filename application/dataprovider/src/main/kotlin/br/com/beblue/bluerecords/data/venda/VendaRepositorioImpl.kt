@@ -17,8 +17,8 @@ import java.sql.Statement
 
 open class VendaRepositorioImpl(private val jdbcTemplate: JdbcTemplate) : VendaRepositorio {
 
-    private val INSERT_VENDA = " INSERT INTO venda_tbl  ( id_cliente, data_venda )" +
-            " VALUES ( ?,? ); "
+    private val INSERT_VENDA = " INSERT INTO venda_tbl  ( id_cliente, data_venda, total_cash_back )" +
+            " VALUES ( ?,?,? ); "
 
     private val INSERT_VENDA_ITENS =
         " INSERT INTO venda_itens_tbl  ( id_venda, id_discos,valor, quantidade,cash_back )" +
@@ -46,6 +46,7 @@ open class VendaRepositorioImpl(private val jdbcTemplate: JdbcTemplate) : VendaR
             val ps = conexao.prepareStatement(INSERT_VENDA, Statement.RETURN_GENERATED_KEYS)
             ps.setInt(1, command.idCliente)
             ps.setDate(2, Date.valueOf(command.date))
+            ps.setDouble(3, command.totalCashBack)
             ps
         }, keyHolderVenda)
         val idVenda = keyHolderVenda.key?.toInt() ?: 0
