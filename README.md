@@ -36,14 +36,13 @@ as implementações e realiza a união do projeto como um todo
 
 * **Core** - Regra de negócio, essa módulo é livre de qualquer tipo de framework
 para deixar a regra independente de tecnologia e de fácil manutenção, nessa camada
-temos duas vertentes:
-    * **entity** - Entidades, objetos que representam o negócio
+temos quatro vertentes:
+    * **entidade** - Entidades, objetos que representam o negócio
     * **use case** - Casos de uso do projeto, como um `Service`, implementa 
     funcionalidades e regras especificas de cada funcionalidade.
     * **facade** - Quando é necessário utilizar mais de um useCase ao mesmo tempo, 
     é sugerido utilizar um facade para isolar a complexidade.
-    * **command** - São comandos convertidos para executar no core para suportar evolução
-    do sistema ao longo do tempo.
+    * **command** - São objetos do core para executar algum comando no usecase, para deixar isolado.
 
 * **Data Provider** - Camada responsável em fornecer os dados para o `core`
 implementando suas interfaces.
