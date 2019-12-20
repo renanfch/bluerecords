@@ -265,7 +265,10 @@ $docker-compose up
 
 
 ## Observações
+
 Tentei utilizar o mínimo de frameworks e bibliotecas possíveis, poderia ser utilizado JPA para persistência e paginação.
-O desenvolvimento foi iniciado com Kotlin, mas por se tratar de uma vaga para JAVA preferi fazer o core e os entrypoint em JAVA.
-O RabbitMQ foi adicionado apenas como exemplo de como funcionaria o envio de uma notificação.
+
+O desenvolvimento foi iniciado em Kotlin por estar ultimamente mais familiarizado em desenvolver backends nessa linguagem, mas por se tratar de uma vaga para JAVA preferi fazer o core e os entrypoint com a mesma.
+
+O RabbitMQ foi adicionado apenas como exemplo de como funcionaria o envio de uma notificação após uma venda.
 
