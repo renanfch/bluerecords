@@ -1,4 +1,4 @@
-![Issues](https://img.shields.io/github/issues/renanfch/bluerecords.svg) ![Forks](https://img.shields.io/github/forks/renanfch/bluerecords.svg) ![Stars](https://img.shields.io/github/stars/renanfch/bluerecords.svg) ![Release Version](https://img.shields.io/github/release/renanfch/bluerecords.svg)
+![Issues](https://img.shields.io/github/issues/renanfch/bluerecords.svg) ![Forks](https://img.shields.io/github/forks/renanfch/bluerecords.svg) ![Stars](https://img.shields.io/github/stars/renanfch/bluerecords.svg) ![Release Version](https://img.shields.io/github/releases/renanfch/bluerecords.svg)
 <p align="center">
     <img src="documentation/images/logoBlueRecords.png" width="450" >
 </p>
