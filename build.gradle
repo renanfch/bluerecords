@@ -1,5 +1,5 @@
 group 'br.com.beblue.bluerecords'
-version '0.0.1'
+version '1.0.0'
 description = "API para consulta e vendas de discos de vinil"
 
 buildscript {

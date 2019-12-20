@@ -16,7 +16,6 @@ Stack utilizada:
 * Documentação: [`Swagger`](https://swagger.io)
 * Tests: 
     * Teste de unidade [`jUnit5`](https://junit.org/junit5/docs/current/user-guide/) 
-    * Ferramenta para mocks [`Mockk`](https://mockk.io)
     * Ferramenta para cobertura de tests [`Jacoco`](https://www.jacoco.org)
 * Deploy: [`Gradle Cargo Plugin`](https://github.com/bmuschko/gradle-cargo-plugin)
 * Log: [`Log4j`](https://logging.apache.org/log4j)
