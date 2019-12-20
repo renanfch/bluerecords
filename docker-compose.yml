@@ -18,15 +18,14 @@ services:
     image: beblue/blue-records-api
     container_name: blue-records-api
     restart: always
-
-    # Pode ser mapeado o volume do banco de dados
-    #    volumes:
-    #      - ~/blue-records/data:/data
-
     ports:
       - 8080:8080
     networks:
       - bluerecords-network
+#     Pode ser mapeado o volume do banco de dados
+#        volumes:
+#          - ~/blue-records/data:/data
+
 
 networks:
   bluerecords-network:

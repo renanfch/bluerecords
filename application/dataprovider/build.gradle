@@ -5,6 +5,7 @@ dependencies {
 
     implementation libs.database
     implementation libs.api_spotify
+    implementation libs.amqp
     testImplementation libs.unit_test
     testImplementation libs.spring_test
 }

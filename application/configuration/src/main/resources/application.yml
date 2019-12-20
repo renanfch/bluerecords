@@ -33,5 +33,5 @@ spring:
     enabled: true
   rabbitmq:
     host: \${RABBITMQ_HOST:localhost}
-    username: \${DATABASE_USER:rabbitmqUser}
-    password: \${DATABASE_PASSWORD:rabbitmqPass}
+    username: \${RABBITMQ_USER:rabbitmqUser}
+    password: \${RABBITMQ_PASSWORD:rabbitmqPass}

@@ -8,15 +8,21 @@ import br.com.beblue.bluerecords.core.repositorio.VendaRepositorio;
 
 public class VendaUseCaseImpl implements VendaUseCase {
 
-    public VendaUseCaseImpl(VendaRepositorio vendaRepositorio) {
-        this.vendaRepositorio = vendaRepositorio;
-    }
-
     private VendaRepositorio vendaRepositorio;
+    private NotificadorVenda notificadorVenda;
+
+    public VendaUseCaseImpl(VendaRepositorio vendaRepositorio, NotificadorVenda notificadorVenda) {
+        this.vendaRepositorio = vendaRepositorio;
+        this.notificadorVenda = notificadorVenda;
+    }
 
     @Override
     public Venda registrarVenda(RegistraVendaCommand command) {
-        return vendaRepositorio.cadastrar(command);
+        Venda venda = vendaRepositorio.cadastrar(command);
+        if(venda.getId()>0)
+            notificadorVenda.notificarNovaVenda(venda.getId());
+
+        return venda;
     }
 
     @Override

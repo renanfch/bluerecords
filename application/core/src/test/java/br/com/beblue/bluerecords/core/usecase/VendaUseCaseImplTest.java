@@ -24,10 +24,11 @@ class VendaUseCaseImplTest {
     RegistraVendaCommand registraVendaCommand = new RegistraVendaCommand(LocalDate.now(), 1, new ArrayList<>(itensVenda));
     Venda venda = new Venda(1, 1, LocalDate.now(), 10.0);
     VendaRepositorio vendaRepositorio = Mockito.mock(VendaRepositorio.class);
+    NotificadorVenda notificadorVenda = Mockito.mock(NotificadorVenda.class);
 
     @Test
     public void deveRetonarVendaComIdUm() {
-        VendaUseCase vendaUseCase = new VendaUseCaseImpl(vendaRepositorio);
+        VendaUseCase vendaUseCase = new VendaUseCaseImpl(vendaRepositorio,notificadorVenda);
         Mockito.when(vendaRepositorio.consulta(1)).thenReturn(venda);
         Venda vendaAtual = vendaUseCase.consultarVendaPorId(1);
 
@@ -36,7 +37,7 @@ class VendaUseCaseImplTest {
 
     @Test
     public void deveRegistrarUmaVenda() {
-        VendaUseCase vendaUseCase = new VendaUseCaseImpl(vendaRepositorio);
+        VendaUseCase vendaUseCase = new VendaUseCaseImpl(vendaRepositorio,notificadorVenda);
         Mockito.when(vendaRepositorio.cadastrar(registraVendaCommand)).thenReturn(venda);
         Venda vendaAtual = vendaUseCase.registrarVenda(registraVendaCommand);
 
